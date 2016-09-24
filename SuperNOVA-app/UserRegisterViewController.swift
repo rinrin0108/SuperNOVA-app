@@ -17,7 +17,9 @@ class UserRegisterViewController: UIViewController {
     @IBOutlet weak var first_name: UILabel!
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var last_name: UILabel!
+    private var profileImageURL :String!
     private var selectImage: UIImage?
+    private var isLoaded :Bool = false
 
     @IBAction func registUser(sender: UIButton) {
         NSLog("UserRegisterViewController registUser");
@@ -44,14 +46,17 @@ class UserRegisterViewController: UIViewController {
         */
         
         // ユーザ登録API呼び出し
-        UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text, image: data, sync: false,
+        UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text,profileImageURL: profileImageURL ,sync: false,
                         success:{
                         values in let closure = {
                             NSLog("UserRegisterViewController success");
                             // 通信は成功したが、エラーが返ってきた場合
                             if(API.isError(values)){
                                 NSLog("UserRegisterViewController isError");
+                                /**
+                                 * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                 Indicator.windowClose()
+                                */
                                 AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                     message: values["errorMessage"] as! String)
                                 return
@@ -64,7 +69,10 @@ class UserRegisterViewController: UIViewController {
                             info.first_name          = self.first_name.text
                             info.last_name          = self.last_name.text
                             
+                            /**
+                            * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                             Indicator.windowClose()
+                            */
                             
                             // MapViewに画面遷移
                             ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
@@ -166,8 +174,22 @@ class UserRegisterViewController: UIViewController {
                             NSLog(self.last_name.text!);
                             self.email.text  = userProfile.objectForKey("email") as? String
                             NSLog(self.email.text!);
+                            self.profileImageURL = profileImageURL
+                            NSLog(self.profileImageURL);
                         }
                     })
                 }
+        isLoaded = true
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        if isLoaded{
+            for subview in self.view.subviews{
+                subview.hidden = false
+            }
+            ViewShowAnimation.showAnimation(self);
+            isLoaded = false
+        }
+    }
+    
 }

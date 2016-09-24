@@ -30,44 +30,24 @@ class UserAPI {
     ///                             それ以外のファイルだった場合は、未設定という扱いとする。<br>
     ///                             ファイルの判定には、isJpeg( let data : NSData! ) -> Bool、<br>
     ///                             isPng( let data : NSData! ) -> Boolを利用している。
+    /// - parameter profileImageURL:           画像URL(let String!)
     /// - parameter sync:           同期設定(true=同期,false=非同期)(let Bool!)
     /// - parameter success:        成功時コールバックメソッド(let Dictionary<String,AnyObject>) -> Void!)
     /// - parameter failed:         失敗時コールバックメソッド(let (Int?,String?) -> Void?)
     ///
-    static func registUser(let email : String!, let first_name : String!, let last_name : String!, let image : NSData?, let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+    static func registUser(let email : String!, let first_name : String!, let last_name : String!,let profileImageURL:String!, let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
         
         NSLog("UserApi registUser");
-        //バリデーション
-        //        if API.validateStringLengthExceed(mailAddress, length: 256, failed: failed){return}
-        if image != nil && API.validateDataLengthExceed(image, failed: failed){return}
-        //        if API.validateStringLengthExceed(name,        length: 50,  failed: failed){return}
-        
         //パラメータの設定
         var params : Dictionary<String,String?>= Dictionary<String,String?>()
         params.updateValue(email,     forKey: "userid")
         params.updateValue(first_name,            forKey: "firstname")
         params.updateValue(last_name,            forKey: "lastname")
+        params.updateValue(profileImageURL, forKey: "image")
         NSLog(params.debugDescription);
 
-        //データの設定
-        var datas : Array<UploadFile> = Array<UploadFile>()
-        if image != nil {
-            if API.isJpeg(image!){
-                NSLog("UserApi isJpeg");
-                let data : UploadFile  = UploadFile(fileName: "image", data: image!, contentType: APIContentType.IMAGE_JPG)
-                datas.append(data)
-            }
-            else if API.isPng(image){
-                NSLog("UserApi isPng");
-                let data : UploadFile  = UploadFile(fileName: "image", data: image!, contentType: APIContentType.IMAGE_PNG)
-                datas.append(data)
-            }
-        }
-        NSLog(params.debugDescription);
-        NSLog(datas.debugDescription);
-        //リクエストの送信
-//        API.request("registUser", methodName: APIHTTPMethod.POST,params: params, sync: sync, success: success, failed: failed)
-        API.requestWithData("registUser", params: params, datas: datas, sync: sync, success: success, failed: failed)
+        // リクエストの送信
+        API.request("registUser", methodName: APIHTTPMethod.GET,params: params, sync: sync, success: success, failed: failed)
     }
     
     /// ユーザ情報取得API<br>

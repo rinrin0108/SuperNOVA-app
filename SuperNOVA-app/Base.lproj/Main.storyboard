@@ -64,7 +64,7 @@
                         <outlet property="first_name" destination="XyF-dA-GX2" id="ncg-HQ-43x"/>
                         <outlet property="last_name" destination="cUP-MN-B3x" id="ShP-FA-8AK"/>
                         <outlet property="profile" destination="mRl-sQ-UWI" id="3pj-Ry-Iyz"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="d4W-dF-geV"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="d4W-dF-geV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sP4-2h-c5s" userLabel="First Responder" sceneMemberID="firstResponder"/>

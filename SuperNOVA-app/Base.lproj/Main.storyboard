@@ -8,7 +8,7 @@
         <!--UserRegisterViewController-->
         <scene sceneID="d8Z-QP-g34">
             <objects>
-                <viewController id="2BP-jT-fZu" userLabel="UserRegisterViewController" sceneMemberID="viewController">
+                <viewController id="2BP-jT-fZu" userLabel="UserRegisterViewController" customClass="UserRegisterViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Abz-zH-jUb"/>
                         <viewControllerLayoutGuide type="bottom" id="Z4F-ZG-dcU"/>
@@ -16,18 +16,65 @@
                     <view key="view" contentMode="scaleToFill" id="7C0-sQ-15I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comfirm_bg" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-Sr-yRc" userLabel="confirm_bg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-yn-RpK">
+                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="OK" backgroundImage="orange_btn"/>
+                                <connections>
+                                    <action selector="registUser:" destination="2BP-jT-fZu" eventType="touchUpInside" id="U4C-5Z-m1R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyF-dA-GX2" userLabel="first_name">
+                                <rect key="frame" x="139" y="138" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUP-MN-B3x" userLabel="last_name">
+                                <rect key="frame" x="139" y="175" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-QR-HPN" userLabel="email">
+                                <rect key="frame" x="47" y="232" width="282" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ログインしますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyY-sk-cCW" userLabel="Announce">
+                                <rect key="frame" x="47" y="272" width="282" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRl-sQ-UWI" userLabel="profile">
+                                <rect key="frame" x="40" y="125" width="91" height="84"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="email" destination="MFI-QR-HPN" id="h2W-49-qhc"/>
+                        <outlet property="first_name" destination="XyF-dA-GX2" id="ncg-HQ-43x"/>
+                        <outlet property="last_name" destination="cUP-MN-B3x" id="ShP-FA-8AK"/>
+                        <outlet property="profile" destination="mRl-sQ-UWI" id="3pj-Ry-Iyz"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="d4W-dF-geV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sP4-2h-c5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123.5" y="334.5"/>
+            <point key="canvasLocation" x="-209.5" y="334.5"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="qzt-Q8-v9J">
             <objects>
-                <viewController id="Pux-Hs-JEb" userLabel="LoginViewController" sceneMemberID="viewController">
+                <viewController id="Pux-Hs-JEb" userLabel="LoginViewController" customClass="LoginViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XED-Vs-mxL"/>
                         <viewControllerLayoutGuide type="bottom" id="5KR-4r-MxZ"/>
@@ -35,13 +82,33 @@
                     <view key="view" contentMode="scaleToFill" id="T0d-8t-WaN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="splash_image" translatesAutoresizingMaskIntoConstraints="NO" id="8rN-qP-Gly">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZh-K5-VSt">
+                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <accessibility key="accessibilityConfiguration" label="あああ"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Facebookでログイン" backgroundImage="btn_login"/>
+                                <connections>
+                                    <action selector="pushLogin:" destination="Pux-Hs-JEb" eventType="touchUpInside" id="XMT-Ti-607"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_splash" translatesAutoresizingMaskIntoConstraints="NO" id="nNj-a8-X8p">
+                                <rect key="frame" x="87" y="97" width="200" height="75"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="2BP-jT-fZu" kind="show" identifier="toUserRegisterView" id="Mwh-u6-Zhm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKB-of-Q97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539.5" y="334.5"/>
+            <point key="canvasLocation" x="-811.5" y="334.5"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -187,4 +254,11 @@
             <point key="canvasLocation" x="1159.5" y="334.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_login" width="600" height="100"/>
+        <image name="comfirm_bg" width="750" height="1334"/>
+        <image name="logo_splash" width="361" height="105"/>
+        <image name="orange_btn" width="600" height="100"/>
+        <image name="splash_image" width="750" height="1334"/>
+    </resources>
 </document>

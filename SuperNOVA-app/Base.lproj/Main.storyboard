@@ -22,6 +22,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-yn-RpK">
                                 <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="OK" backgroundImage="orange_btn"/>
                                 <connections>
                                     <action selector="registUser:" destination="2BP-jT-fZu" eventType="touchUpInside" id="U4C-5Z-m1R"/>
@@ -45,7 +46,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="こちらの内容で登録しますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyY-sk-cCW" userLabel="Announce">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ログインしますか？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyY-sk-cCW" userLabel="Announce">
                                 <rect key="frame" x="47" y="272" width="282" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,7 +90,7 @@
                                 <rect key="frame" x="40" y="550" width="300" height="50"/>
                                 <accessibility key="accessibilityConfiguration" label="あああ"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Facebookでアカウントを作成" backgroundImage="btn_login"/>
+                                <state key="normal" title="Facebookでログイン" backgroundImage="btn_login"/>
                                 <connections>
                                     <action selector="pushLogin:" destination="Pux-Hs-JEb" eventType="touchUpInside" id="XMT-Ti-607"/>
                                 </connections>

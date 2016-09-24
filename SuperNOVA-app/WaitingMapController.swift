@@ -43,7 +43,7 @@ class WaitingMapViewController: UIViewController {
                                             }
                                             
                                             NSLog(values.debugDescription);
-                                            appDelegate._teacher = values["teacher"] as! String
+                                            appDelegate._partner = values["teacher"] as! String
                                             ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
                                             
                                         }

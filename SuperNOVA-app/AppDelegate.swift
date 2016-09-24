@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //
     var zoom: Float = 17
     //
-    //let distance_filter: CLLocationDistance = 10;
+    let distance_filter: CLLocationDistance = 50;
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
      * ログインボタン押下時
      **/
     @IBAction func pushLogin(sender: UIButton) {
+        print("---LoginViewController pushLogin");
         //ログイン認証を行う
         let login : FBSDKLoginManager = FBSDKLoginManager.init()
         login.logInWithReadPermissions(["public_profile", "email"], fromViewController: self,
@@ -31,10 +32,12 @@ class LoginViewController: UIViewController {
                                         let closure = {
                                             if ((error) != nil)
                                             {
+                                                print("---LoginViewController error");
                                                 // 失敗した場合エラー情報を表示
                                                 AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                     message: NSLocalizedString("ALERT_LOGIN_FAILED_ERROR", comment: ""));
                                             } else if !result.isCancelled {
+                                                print("---LoginViewController success");
                                                 //ログインが成功
                                                 ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
                                             }

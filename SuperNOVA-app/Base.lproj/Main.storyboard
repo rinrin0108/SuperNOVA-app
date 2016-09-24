@@ -419,6 +419,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="name_student" destination="6z5-BM-T52" id="BNb-dc-XXN"/>
+                        <outlet property="name_teacher" destination="OZn-yd-DO2" id="pcn-da-eHL"/>
+                        <outlet property="photo_student" destination="YL0-Ve-ie9" id="hl4-SO-0Q1"/>
+                        <outlet property="photo_teacher" destination="yfQ-Av-njo" id="7dQ-3o-DLp"/>
                         <segue destination="nQX-MV-Um7" kind="show" identifier="toConversationView" id="Xty-Wt-KeH"/>
                     </connections>
                 </viewController>

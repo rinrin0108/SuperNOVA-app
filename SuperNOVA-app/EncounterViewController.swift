@@ -11,6 +11,25 @@ import UIKit
 
 class EncounterViewController: UIViewController {
     
+    
+    @IBOutlet weak var photo_student: UIImageView!
+    @IBOutlet weak var photo_teacher: UIImageView!
+    @IBOutlet weak var name_student: UILabel!
+    @IBOutlet weak var name_teacher: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        //生徒
+        self.name_student.text = appDelegate._fullname
+        self.photo_student.image =  API.downloadImage(appDelegate._image)
+        
+        //教師
+        
+
+    }
+    
+    
     @IBAction func start(sender: UIButton) {
         
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得

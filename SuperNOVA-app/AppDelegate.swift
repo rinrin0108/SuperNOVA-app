@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _lng      :String!
     var _time      :String!
     var _teacher  :String!
+    var _teacherName :String!
+    var _teacherimage :String!
     
     // 
     //var initializedLocation: Bool = false;

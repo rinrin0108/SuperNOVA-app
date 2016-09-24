@@ -14,6 +14,9 @@ import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
+    @IBAction func goAppoint(sender: UIButton) {
+        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toCallView")
+    }
     //
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     

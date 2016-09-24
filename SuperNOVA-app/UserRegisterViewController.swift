@@ -67,11 +67,11 @@ class UserRegisterViewController: UIViewController {
                             
                             // API返却値と、画面入力値を端末に保存
                             NSLog("UserRegisterViewController here");
-                            let info : AccountInfo  = AccountInfo.get()
+                            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
                             NSLog("UserRegisterViewController here");
-                            info.mailAddress        = self.email.text
-                            info.image              = self.profileImageURL
-                            info.fullname          = self.first_name.text! + self.last_name.text!
+                            appDelegate._userid    = self.email.text
+                            appDelegate._image     = self.profileImageURL
+                            appDelegate._fullname  = self.first_name.text! + self.last_name.text!
                             
                             /**
                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
@@ -173,16 +173,23 @@ class UserRegisterViewController: UIViewController {
         
                             //ユーザID,メールアドレス,氏,名を設定
                             self.first_name.text = userProfile.objectForKey("first_name") as? String
+                            NSLog("self.first_name.text!");
                             NSLog(self.first_name.text!);
                             self.last_name.text = userProfile.objectForKey("last_name") as? String
+                            NSLog("self.last_name.text!");
                             NSLog(self.last_name.text!);
                             self.email.text  = userProfile.objectForKey("email") as? String
+                            NSLog("self.email.text!");
                             NSLog(self.email.text!);
                             self.profileImageURL = profileImageURL
+                            NSLog("self.profileImageURL");
                             NSLog(self.profileImageURL);
                         }
+                        NSLog("here");
                     })
+                    NSLog("here2");
                 }
+        NSLog("isLoaded");
         isLoaded = true
     }
     

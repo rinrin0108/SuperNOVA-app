@@ -11,6 +11,14 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class UserRegisterViewController: UIViewController {
+    
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var first_name: UILabel!
+    @IBOutlet weak var profile: UIImageView!
+    @IBOutlet weak var last_name: UILabel!
+    private var selectImage: UIImage?
+
 
     override
     func viewDidLoad() {
@@ -36,20 +44,25 @@ class UserRegisterViewController: UIViewController {
                             // プロフィール画像の取得
                             let profileImageURL : String = userProfile.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String
                             
+                            print(userProfile.objectForKey("id") as? String);
                             print(userProfile.objectForKey("name") as? String);
+                            print(userProfile.objectForKey("first_name") as? String);
+                            print(userProfile.objectForKey("last_name") as? String);
+                            print(userProfile.objectForKey("picture") as? String);
                             print(userProfile.objectForKey("email") as? String);
         
-//                            if profileImageURL != "" {
-//                                let profileImage : UIImage? = API.downloadImage(profileImageURL)
-//                                self.profile.image = profileImage
-//                                self.selectImage = profileImage
-//                                self.profile.layer.cornerRadius = self.profile.frame.size.width / 2
-//                                self.profile.clipsToBounds = true
-//                            }
+                            if profileImageURL != "" {
+                                let profileImage : UIImage? = API.downloadImage(profileImageURL)
+                                self.profile.image = profileImage
+                                self.selectImage = profileImage
+                                self.profile.layer.cornerRadius = self.profile.frame.size.width / 2
+                                self.profile.clipsToBounds = true
+                            }
         
-                            //ユーザIDとメールアドレスを設定
-//                            self.userId.text = userProfile.objectForKey("name") as? String
-//                            self.email.text  = userProfile.objectForKey("email") as? String
+                            //ユーザID,メールアドレス,氏,名を設定
+                            self.first_name.text = userProfile.objectForKey("first_name") as? String
+                            self.last_name.text = userProfile.objectForKey("last_name") as? String
+                            self.email.text  = userProfile.objectForKey("email") as? String
                         }
                     })
                 }

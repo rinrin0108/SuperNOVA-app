@@ -182,12 +182,16 @@ class UserRegisterViewController: UIViewController {
         isLoaded = true
     }
     
+    private func encode(url:String) -> (String){
+        return url.stringByReplacingOccurrencesOfString("&", withString: "%%%");
+    }
+    
     override func viewDidAppear(animated: Bool) {
         if isLoaded{
             for subview in self.view.subviews{
                 subview.hidden = false
             }
-            ViewShowAnimation.showAnimation(self);
+//            ViewShowAnimation.showAnimation(self);
             isLoaded = false
         }
     }

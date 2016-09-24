@@ -128,11 +128,14 @@
             if methodName.rawValue == APIHTTPMethod.GET.rawValue{
                 NSLog("API methodName.rawValue == APIHTTPMethod.GET.rawValue");
                 let urlWord             = get_domain+apiName+paramWord
+                NSLog(urlWord.debugDescription);
                 let url : NSURL         = NSURL(string: urlWord)!
+                NSLog(url.debugDescription);
                 request                 = NSMutableURLRequest(URL: url)
                 request.HTTPMethod      = methodName.rawValue
                 request.timeoutInterval = timeoutInterval
                 log("URL:\(url)[GET]")
+                NSLog(request.debugDescription);
                 //キャッシュ制御
                 if !isCached {
                     NSLog("API !isCached");

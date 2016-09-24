@@ -30,7 +30,7 @@
         private static let domain_protocol  : String            = "https://"
         //        private static let domain_protocol  : String            = "http://"
         /// デフォルトドメイン
-        private static let domain           : String            = "supernova-hack.com";
+        private static let domain           : String            = "www.supernova-hack.com";
         //        private static let domain           : String            = "localhost";
         //POST用URL
         private static let post_domain      : String            = "\(domain_protocol)\(domain)/"
@@ -91,6 +91,7 @@
         ///
         static func request(let apiName :String!,let methodName :APIHTTPMethod!,let params :Dictionary<String,String?>?,let sync : Bool, let success:((Dictionary<String,AnyObject>) -> Void)?, failed:((Int?,String?) -> Void)?) -> Void{
             
+            NSLog("API request");
             //セッションの作成
             
             let session     : NSURLSession              = NSURLSession.sharedSession()
@@ -99,6 +100,7 @@
             
             //各種パラメータの設定
             if params != nil && !params!.isEmpty{
+                NSLog("API params != nil && !params!.isEmpty");
                 var isEmpty = true
                 //let allowedCharacterSet = NSMutableCharacterSet.alphanumericCharacterSet()
                 //allowedCharacterSet.addCharactersInString("-._~")
@@ -109,8 +111,10 @@
                         : ""
                     // TODO:ここの部分の記述をもう少し綺麗にかけないか
                     if !isEmpty{
+                        NSLog("API isEmpty");
                         paramWord += "&\(encKey)=\(encValue)"
                     }else{
+                        NSLog("API isEmpty else");
                         paramWord += "\(encKey)=\(encValue)"
                         isEmpty = false
                     }
@@ -122,6 +126,7 @@
             //GETのみURLに設定
             //その他はBodyに設定
             if methodName.rawValue == APIHTTPMethod.GET.rawValue{
+                NSLog("API methodName.rawValue == APIHTTPMethod.GET.rawValue");
                 let urlWord             = get_domain+apiName+paramWord
                 let url : NSURL         = NSURL(string: urlWord)!
                 request                 = NSMutableURLRequest(URL: url)
@@ -130,10 +135,12 @@
                 log("URL:\(url)[GET]")
                 //キャッシュ制御
                 if !isCached {
+                    NSLog("API !isCached");
                     request.cachePolicy     = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
                 }
                 
             }else{
+                NSLog("API API methodName.rawValue == APIHTTPMethod.GET.rawValue else");
                 let urlWord             = post_domain+apiName
                 let url : NSURL         = NSURL(string: urlWord)!
                 request                 = NSMutableURLRequest(URL: url)
@@ -141,7 +148,10 @@
                 request.HTTPBody        = paramWord.dataUsingEncoding(NSUTF8StringEncoding)
                 request.timeoutInterval = timeoutInterval
                 log("URL:\(url)[\(methodName.rawValue)]")
+                NSLog(request.debugDescription);
+                NSLog(params.debugDescription)
                 if debug_log && params != nil && !params!.isEmpty{
+                    NSLog("API debug_log && params != nil && !params!.isEmpty");
                     params?.forEach({ key,value in
                         let encKey    = key;//.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet)!
                         let encValue  = value != nil
@@ -153,18 +163,21 @@
                 
                 //キャッシュ制御
                 if !isCached {
+                    NSLog("API !isCached 2");
                     request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
                 }
             }
             
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             if using_basic && methodName.rawValue != APIHTTPMethod.GET.rawValue {
+                NSLog("API using_basic && methodName.rawValue != APIHTTPMethod.GET.rawValue");
                 request.setValue(basic_auth_word, forHTTPHeaderField: "Authorization")
                 log("Auth:\(basic_user):\(basic_password)")
             }
             
             //同期する場合
             if sync {
+                NSLog("API sync");
                 var selfData        : NSData?               = nil
                 var selfResponse    : NSURLResponse?        = nil
                 var selfErr         : NSError?              = nil
@@ -178,16 +191,22 @@
                     selfErr         = err
                     
                     if debug_log {
+                        NSLog("API debug_log");
                         let res = response as? NSHTTPURLResponse
                         log("Response")
                         log("ID:\(res?.statusCode)")
                         log("DESC:\(res?.debugDescription)")
+                        NSLog("data")
+                        NSLog(data.debugDescription)
+                        NSLog("err")
+                        NSLog(err.debugDescription)
                     }
                     dispatch_semaphore_signal(semaphore)
                 })
                 task.resume()
                 dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
                 if selfErr != nil {
+                    NSLog("API selfErr != nil")
                     failed!(selfErr?.code,selfErr?.description)
                     return
                 }
@@ -195,6 +214,7 @@
                 //正常なステータス(200)以外の場合はエラークロージャを呼んで終了する
                 if let httpResponse = selfResponse as? NSHTTPURLResponse {
                     if httpResponse.statusCode == 503{
+                        NSLog("API httpResponse.statusCode == 503")
                         failed!(httpResponse.statusCode, httpResponse.description)
                         return
                     }
@@ -215,18 +235,24 @@
             }
                 //非同期の場合
             else {
+                NSLog("API sync else");
                 //リクエストの送信
                 let task = session.dataTaskWithRequest(request, completionHandler: {
                     //レスポンスの処理
                     (data, response, err) in
                     if debug_log {
+                        NSLog("API sync else debug_log");
                         let res = response as? NSHTTPURLResponse
                         log("Response")
                         log("ID:\(res?.statusCode)")
                         log("DESC:\(res?.debugDescription)")
+                        NSLog(data.debugDescription)
+                        NSLog(response.debugDescription)
+                        NSLog(err.debugDescription)
                     }
                     
                     if err != nil {
+                        NSLog("API err != nil");
                         failed!(err?.code,err?.description)
                         return
                     }
@@ -234,6 +260,7 @@
                     //正常なステータス(200)以外の場合はエラークロージャを呼んで終了する
                     if let httpResponse = response as? NSHTTPURLResponse {
                         if httpResponse.statusCode == 503 {
+                            NSLog("API httpResponse.statusCode == 503");
                             failed!(httpResponse.statusCode, httpResponse.description)
                             return
                         }
@@ -243,6 +270,7 @@
                     do {
                         // FIXME: 空の返却値の対応はこれで良いかを確認
                         if data!.length > 2 {
+                            NSLog("API data!.length > 2");
                             json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! Dictionary<String,AnyObject>
                             if debug_log {
                                 log(NSString(data: data!, encoding: NSUTF8StringEncoding) as! String)
@@ -252,8 +280,10 @@
                         print("failed parse - \(NSString(data:data!, encoding:NSUTF8StringEncoding))")
                     }
                     success!(json)
+                    NSLog("API success!(json)");
                 })
                 task.resume()
+                NSLog("API task.resume()");
             }
         }
         
@@ -290,9 +320,11 @@
             
             
             log("URL:\(url)[POST]")
+            NSLog(request.debugDescription);
             
             //各種情報の作成
             request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            NSLog(request.HTTPBody.debugDescription);
             if using_basic {
                 request.setValue(basic_auth_word, forHTTPHeaderField: "Authorization")
                 log("Auth:\(basic_user):\(basic_password)")

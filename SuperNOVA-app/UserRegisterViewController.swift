@@ -23,6 +23,8 @@ class UserRegisterViewController: UIViewController {
 
     @IBAction func registUser(sender: UIButton) {
         NSLog("UserRegisterViewController registUser");
+        /**
+         *  画像ではなく画像URLを使用
         var data : NSData? = nil
         // プロファイル画像が選択されていた場合
         if(selectImage != nil){
@@ -39,6 +41,7 @@ class UserRegisterViewController: UIViewController {
             data = UIImagePNGRepresentation(UIImage(named: "user_no_image")!)
             NSLog("UserRegisterViewController user_no_image");
         }
+        */
         
         /**
          * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
@@ -63,11 +66,12 @@ class UserRegisterViewController: UIViewController {
                             }
                             
                             // API返却値と、画面入力値を端末に保存
+                            NSLog("UserRegisterViewController here");
                             let info : AccountInfo  = AccountInfo.get()
+                            NSLog("UserRegisterViewController here");
                             info.mailAddress        = self.email.text
-                            info.image              = data
-                            info.first_name          = self.first_name.text
-                            info.last_name          = self.last_name.text
+                            info.image              = self.profileImageURL
+                            info.fullname          = self.first_name.text! + self.last_name.text!
                             
                             /**
                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）

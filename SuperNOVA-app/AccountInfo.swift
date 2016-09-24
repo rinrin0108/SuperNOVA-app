@@ -17,31 +17,23 @@ final class AccountInfo {
     private let store               : NSUserDefaults    = NSUserDefaults.standardUserDefaults()
     ///キー一覧
     /// メールアドレス
-    private let mailAddressKey      : String!           = "mailAddress"
+    private let mailAddressKey      : String!           = "userid"
     /// プロフィール画像
-    private let imageKey            : String!           = "imageKey"
+    private let imageKey            : String!           = "image"
 
-    /// First Name
-    private let first_name_key      : String!           = "first_name"
-    
-    /// Last Name
-    private let last_name_key      : String!           = "last_name"
+    /// Full Name
+    private let fullnameKey      : String!           = "fullname"
     
     
     /// メールアドレス
     private var mailAddressValue : String!
     
-    /// プロフィール画像
-    private var imageValue : NSData?
+    /// プロフィール画像URL
+    private var imageValue : String!
 
-    /// First Name
-    private var first_name_value      : String!
+    /// Full Name
+    private var fullnameValue      : String!
 
-    /// First Name
-    private var last_name_value      : String!
-    
-    
-    
     ///シングルトンインスタンス
     private static let info : AccountInfo = AccountInfo()
     static func get() -> AccountInfo{ return info }
@@ -50,18 +42,22 @@ final class AccountInfo {
     /// 該当機能ではインスタンスの生成を外部で行わない為、privateとする。
     private init(){
         
+        NSLog("AccountInfo init");
         // キーがidの値をとります。
         let mailAddressValue    : String?   = store.stringForKey(mailAddressKey)
-        let imageValue          : NSData?   = store.dataForKey(imageKey)
-        let first_name_value    : String?   = store.stringForKey(first_name)
-        let last_name_value    : String?   = store.stringForKey(last_name)
-        
+        NSLog(mailAddressValue!);
+        let imageValue          : String?   = store.stringForKey(imageKey)
+        NSLog(imageValue!);
+        let fullnameValue    : String?   = store.stringForKey(fullnameKey)
+        NSLog(fullnameValue!);
         
         //値の設定
         self.mailAddressValue   = mailAddressValue  != nil ? mailAddressValue : ""
+        NSLog(self.mailAddress);
         self.imageValue         = imageValue
-        self.first_name_value   = first_name_value
-        self.last_name_value    = last_name_value
+        NSLog(self.imageValue);
+        self.fullnameValue   = fullnameValue
+        NSLog(self.fullnameValue);
     }
     
     
@@ -76,7 +72,7 @@ final class AccountInfo {
         }
     }
     
-    var image : NSData?{
+    var image : String!{
         get {
             return imageValue
         }
@@ -88,27 +84,15 @@ final class AccountInfo {
         
     }
     
-    var first_name : String!{
+    var fullname : String!{
         get {
-            return first_name_value
+            return fullnameValue
         }
-        set(first_name) {
-            self.first_name_value = first_name
-            store.setObject(first_name_value, forKey: first_name_key)
+        set(fullname) {
+            self.fullnameValue = fullname
+            store.setObject(fullnameValue, forKey: fullnameKey)
             store.synchronize()
         }
     }
-    
-    var last_name : String!{
-        get {
-            return last_name_value
-        }
-        set(last_name) {
-            self.last_name_value = last_name
-            store.setObject(last_name_value, forKey: last_name_key)
-            store.synchronize()
-        }
-    }
-    
     
 }

@@ -34,7 +34,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             return
                                         }
                                         
+                                        NSLog("yeeeeeeees");
                                         NSLog(values.debugDescription);
+                                        NSLog("yeeeeeeees");
                                         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toTeacherWaitingView")
                                         
                                         

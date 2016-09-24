@@ -10,7 +10,7 @@ import Foundation
 
 class UserAPI {
     
-    /// コンストラクタ
+    /// コンストラクタ.
     /// 該当機能ではインスタンスの生成が不要となる為、privateで宣言
     private init(){}
     

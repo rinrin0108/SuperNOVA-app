@@ -50,7 +50,7 @@ class CallViewController: UIViewController {
                                 appDelegate._id = values["_id"] as! String
                                 
                                 // 画面遷移
-                                ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+                                ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toWaitingMapView")
                             }
                             // 通知の監視
                             if(!NSThread.isMainThread()){

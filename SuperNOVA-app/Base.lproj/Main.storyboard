@@ -187,6 +187,53 @@
             </objects>
             <point key="canvasLocation" x="295.5" y="324.5"/>
         </scene>
+        <!--WaitingMapViewController-->
+        <scene sceneID="vcs-3r-uAC">
+            <objects>
+                <viewController id="3RO-Vd-9TR" userLabel="WaitingMapViewController" customClass="WaitingMapViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fTJ-oM-4DB"/>
+                        <viewControllerLayoutGuide type="bottom" id="ex5-BD-8fg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vug-cV-pi0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdZ-Nb-FFk">
+                                <rect key="frame" x="0.0" y="78" width="375" height="445"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-dD-Jdc" userLabel="shop_image">
+                                <rect key="frame" x="20" y="511" width="82" height="81"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-Gy-Y2b" userLabel="shop_name">
+                                <rect key="frame" x="113" y="511" width="242" height="81"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-WC-mP5">
+                                <rect key="frame" x="40" y="600" width="300" height="50"/>
+                                <state key="normal" title="ここにCall" backgroundImage="orange_btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="waiting:" destination="3RO-Vd-9TR" eventType="touchUpInside" id="wJg-fR-09m"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="pdV-4q-DF1"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="IwH-KW-BsE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyy-uW-5Cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="794.5" y="1266.5"/>
+        </scene>
         <!--ConversationViewController-->
         <scene sceneID="ig4-Nm-mbQ">
             <objects>
@@ -360,7 +407,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="GT3-JB-2ds"/>
+                        <segue destination="3RO-Vd-9TR" kind="show" identifier="toWaitingMapView" id="Ec6-Os-8th"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ix-Ai-HOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -445,6 +492,6 @@
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CBP-oz-Lc4"/>
+        <segue reference="IwH-KW-BsE"/>
     </inferredMetricsTieBreakers>
 </document>

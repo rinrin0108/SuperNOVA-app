@@ -20,6 +20,7 @@
 		51F90C561D96826A00CBFB88 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C551D96826A00CBFB88 /* UserApi.swift */; };
 		51F90C581D96845F00CBFB88 /* IndicatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C571D96845F00CBFB88 /* IndicatorUtil.swift */; };
 		51F90C5A1D96853800CBFB88 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C591D96853800CBFB88 /* AccountInfo.swift */; };
+		51F90C5C1D96B1D200CBFB88 /* MergerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C5B1D96B1D200CBFB88 /* MergerApi.swift */; };
 		C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909CF11D96384E00E3093A /* AppDelegate.swift */; };
 		C0909CF41D96384E00E3093A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909CF31D96384E00E3093A /* ViewController.swift */; };
 		C0909CF71D96384E00E3093A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0909CF51D96384E00E3093A /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		51F90C551D96826A00CBFB88 /* UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		51F90C571D96845F00CBFB88 /* IndicatorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorUtil.swift; sourceTree = "<group>"; };
 		51F90C591D96853800CBFB88 /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		51F90C5B1D96B1D200CBFB88 /* MergerApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergerApi.swift; sourceTree = "<group>"; };
 		C0909CEE1D96384E00E3093A /* SuperNOVA-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperNOVA-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0909CF11D96384E00E3093A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0909CF31D96384E00E3093A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				51E684441D964C110040C2AD /* APIHttpMethod.swift */,
 				51E684461D964D1F0040C2AD /* UploadFile.swift */,
 				51F90C551D96826A00CBFB88 /* UserApi.swift */,
+				51F90C5B1D96B1D200CBFB88 /* MergerApi.swift */,
 			);
 			name = APIs;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				51E684451D964C110040C2AD /* APIHttpMethod.swift in Sources */,
 				51E684541D96556F0040C2AD /* AlertUtil.swift in Sources */,
 				51E684571D9657900040C2AD /* ViewShowAnimation.swift in Sources */,
+				51F90C5C1D96B1D200CBFB88 /* MergerApi.swift in Sources */,
 				C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */,
 				51F90C561D96826A00CBFB88 /* UserApi.swift in Sources */,
 			);

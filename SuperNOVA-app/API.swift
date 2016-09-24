@@ -303,6 +303,7 @@
         /// -returns:
         ///
         static func requestWithData(let apiName :String!, let params :Dictionary<String,String?>?,let datas:Array<UploadFile>!,let sync : Bool, let success:((Dictionary<String,AnyObject>) -> Void)?, failed:((Int?,String?) -> Void)?) -> Void{
+            NSLog("API requestWithData");
             
             //        //そもそもバイトデータが存在しない場合は、requestで処理を行う
             //        if datas.isEmpty {
@@ -332,6 +333,7 @@
             
             //キャッシュ制御
             if !isCached {
+                NSLog("API !isCached");
                 request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
             }
             
@@ -340,6 +342,7 @@
             //allowedCharacterSet.addCharactersInString("-._~")
             //各種パラメータの設定
             if params != nil && !params!.isEmpty{
+                NSLog("API params != nil && !params!.isEmpty");
                 params?.forEach({ key,value in
                     let encKey    = key;//.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet)!
                     let encValue  = value != nil
@@ -374,6 +377,7 @@
             request.setValue(String(data.length), forHTTPHeaderField: "Content-Length")
             //同期する場合
             if sync {
+                NSLog("API sync");
                 var selfData        : NSData?               = nil
                 var selfResponse    : NSURLResponse?        = nil
                 var selfErr         : NSError?              = nil
@@ -390,6 +394,7 @@
                 task.resume()
                 dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
                 if selfErr != nil {
+                    NSLog("API selfErr != nil");
                     failed!(selfErr?.code,selfErr?.description)
                     return
                 }
@@ -397,6 +402,7 @@
                 //正常なステータス(200)以外の場合はエラークロージャを呼んで終了する
                 if let httpResponse = selfResponse as? NSHTTPURLResponse {
                     if httpResponse.statusCode == 503{
+                        NSLog("API httpResponse.statusCode == 503");
                         failed!(httpResponse.statusCode, httpResponse.description)
                         return
                     }
@@ -405,6 +411,7 @@
                 var json : Dictionary<String,AnyObject> = Dictionary()
                 do {
                     if selfData!.length > 2 {
+                        NSLog("API selfData!.length > 2");
                         json = try NSJSONSerialization.JSONObjectWithData(selfData!, options: .MutableContainers) as! Dictionary<String,AnyObject>
                         if debug_log {
                             log(NSString(data: selfData!, encoding: NSUTF8StringEncoding) as! String)
@@ -417,17 +424,26 @@
             }
                 //非同期の場合
             else {
+                NSLog("API sync else");
                 //リクエストの送信
                 let task = session.dataTaskWithRequest(request, completionHandler: {
                     //レスポンスの処理
                     (data, response, err) in
                     if debug_log {
+                        NSLog("API debug_log");
                         let res = response as? NSHTTPURLResponse
                         log("Response")
                         log("ID:\(res?.statusCode)")
                         log("DESC:\(res?.debugDescription)")
+                        NSLog("data")
+                        NSLog(data.debugDescription)
+                        NSLog("response")
+                        NSLog(response.debugDescription)
+                        NSLog("err")
+                        NSLog(err.debugDescription)
                     }
                     if err != nil {
+                        NSLog("API err != nil")
                         failed!(err?.code,err?.description)
                         return
                     }
@@ -435,6 +451,7 @@
                     //正常なステータス(200)以外の場合はエラークロージャを呼んで終了する
                     if let httpResponse = response as? NSHTTPURLResponse {
                         if httpResponse.statusCode == 503 {
+                            NSLog("API httpResponse.statusCode == 503")
                             failed!(httpResponse.statusCode, httpResponse.description)
                             return
                         }
@@ -444,6 +461,7 @@
                     do {
                         // FIXME: 空の返却値の対応はこれで良いかを確認
                         if data!.length > 2 {
+                            NSLog("API data!.length > 2")
                             json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as! Dictionary<String,AnyObject>
                             if debug_log {
                                 log(NSString(data: data!, encoding: NSUTF8StringEncoding) as! String)
@@ -453,8 +471,10 @@
                         print("failed parse - \(NSString(data:data!, encoding:NSUTF8StringEncoding))")
                     }
                     success!(json)
+                    NSLog("success!(json)");
                 })
                 task.resume()
+                NSLog("task.resume()");
             }
         }
         

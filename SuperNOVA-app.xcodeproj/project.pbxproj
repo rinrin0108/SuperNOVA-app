@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09AA4650772C39CFA2492420 /* Pods_SuperNOVA_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D927C576FA07B75C460D67D2 /* Pods_SuperNOVA_appTests.framework */; };
+		82B24E17E57ADDB44E41E9D8 /* Pods_SuperNOVA_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010B41CDE26002C5956D611A /* Pods_SuperNOVA_app.framework */; };
 		C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909CF11D96384E00E3093A /* AppDelegate.swift */; };
 		C0909CF41D96384E00E3093A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909CF31D96384E00E3093A /* ViewController.swift */; };
 		C0909CF71D96384E00E3093A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0909CF51D96384E00E3093A /* Main.storyboard */; };
@@ -14,6 +16,8 @@
 		C0909CFC1D96384E00E3093A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0909CFA1D96384E00E3093A /* LaunchScreen.storyboard */; };
 		C0909D071D96384E00E3093A /* SuperNOVA_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D061D96384E00E3093A /* SuperNOVA_appTests.swift */; };
 		C0909D121D96384E00E3093A /* SuperNOVA_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D111D96384E00E3093A /* SuperNOVA_appUITests.swift */; };
+		C0909D201D964DC100E3093A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D1F1D964DC100E3093A /* MapViewController.swift */; };
+		D34587B2BE0E0EFC4CFF46DD /* Pods_SuperNOVA_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEE594A125CDF39B9E88EA9 /* Pods_SuperNOVA_appUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		010B41CDE26002C5956D611A /* Pods_SuperNOVA_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperNOVA_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AEE594A125CDF39B9E88EA9 /* Pods_SuperNOVA_appUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperNOVA_appUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B91B2231A7128635D6BE9BC /* Pods-SuperNOVA-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app.debug.xcconfig"; sourceTree = "<group>"; };
+		91BD3AB9252D092CA32800FC /* Pods-SuperNOVA-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-appUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-appUITests/Pods-SuperNOVA-appUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9E9385A34463BBE40E04C120 /* Pods-SuperNOVA-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-appTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		C0909CEE1D96384E00E3093A /* SuperNOVA-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperNOVA-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0909CF11D96384E00E3093A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0909CF31D96384E00E3093A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,11 @@
 		C0909D0D1D96384E00E3093A /* SuperNOVA-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SuperNOVA-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0909D111D96384E00E3093A /* SuperNOVA_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperNOVA_appUITests.swift; sourceTree = "<group>"; };
 		C0909D131D96384E00E3093A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0909D1F1D964DC100E3093A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D8744C0A08A19BFA241DE443 /* Pods-SuperNOVA-appUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-appUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-appUITests/Pods-SuperNOVA-appUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D927C576FA07B75C460D67D2 /* Pods_SuperNOVA_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SuperNOVA_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD7CEFC2025109CCAAD027C3 /* Pods-SuperNOVA-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app.release.xcconfig"; sourceTree = "<group>"; };
+		E1E6707B03E65E887822F89A /* Pods-SuperNOVA-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-appTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B24E17E57ADDB44E41E9D8 /* Pods_SuperNOVA_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09AA4650772C39CFA2492420 /* Pods_SuperNOVA_appTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34587B2BE0E0EFC4CFF46DD /* Pods_SuperNOVA_appUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,8 @@
 				C0909D051D96384E00E3093A /* SuperNOVA-appTests */,
 				C0909D101D96384E00E3093A /* SuperNOVA-appUITests */,
 				C0909CEF1D96384E00E3093A /* Products */,
+				C2514CAD59023413F3470021 /* Pods */,
+				E0F692EC9CEC77E58B981241 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +118,7 @@
 			children = (
 				C0909CF11D96384E00E3093A /* AppDelegate.swift */,
 				C0909CF31D96384E00E3093A /* ViewController.swift */,
+				C0909D1F1D964DC100E3093A /* MapViewController.swift */,
 				C0909CF51D96384E00E3093A /* Main.storyboard */,
 				C0909CF81D96384E00E3093A /* Assets.xcassets */,
 				C0909CFA1D96384E00E3093A /* LaunchScreen.storyboard */,
@@ -125,6 +145,29 @@
 			path = "SuperNOVA-appUITests";
 			sourceTree = "<group>";
 		};
+		C2514CAD59023413F3470021 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B91B2231A7128635D6BE9BC /* Pods-SuperNOVA-app.debug.xcconfig */,
+				DD7CEFC2025109CCAAD027C3 /* Pods-SuperNOVA-app.release.xcconfig */,
+				E1E6707B03E65E887822F89A /* Pods-SuperNOVA-appTests.debug.xcconfig */,
+				9E9385A34463BBE40E04C120 /* Pods-SuperNOVA-appTests.release.xcconfig */,
+				D8744C0A08A19BFA241DE443 /* Pods-SuperNOVA-appUITests.debug.xcconfig */,
+				91BD3AB9252D092CA32800FC /* Pods-SuperNOVA-appUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E0F692EC9CEC77E58B981241 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				010B41CDE26002C5956D611A /* Pods_SuperNOVA_app.framework */,
+				D927C576FA07B75C460D67D2 /* Pods_SuperNOVA_appTests.framework */,
+				0AEE594A125CDF39B9E88EA9 /* Pods_SuperNOVA_appUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0909D161D96384E00E3093A /* Build configuration list for PBXNativeTarget "SuperNOVA-app" */;
 			buildPhases = (
+				CF06437DFF7BC063741155A6 /* [CP] Check Pods Manifest.lock */,
 				C0909CEA1D96384E00E3093A /* Sources */,
 				C0909CEB1D96384E00E3093A /* Frameworks */,
 				C0909CEC1D96384E00E3093A /* Resources */,
+				44563E52B7B51C62754BE77E /* [CP] Embed Pods Frameworks */,
+				44A2FEEFD8A1AC1DC21BBABA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0909D191D96384E00E3093A /* Build configuration list for PBXNativeTarget "SuperNOVA-appTests" */;
 			buildPhases = (
+				A99BFB798EA0D8999B6B03A1 /* [CP] Check Pods Manifest.lock */,
 				C0909CFE1D96384E00E3093A /* Sources */,
 				C0909CFF1D96384E00E3093A /* Frameworks */,
 				C0909D001D96384E00E3093A /* Resources */,
+				76546F435350F4F340F9FF27 /* [CP] Embed Pods Frameworks */,
+				CF4C1624526A65F79ECCCE13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0909D1C1D96384E00E3093A /* Build configuration list for PBXNativeTarget "SuperNOVA-appUITests" */;
 			buildPhases = (
+				0906773D501825572FA0F09E /* [CP] Check Pods Manifest.lock */,
 				C0909D091D96384E00E3093A /* Sources */,
 				C0909D0A1D96384E00E3093A /* Frameworks */,
 				C0909D0B1D96384E00E3093A /* Resources */,
+				E2372608099E659182293F07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +244,15 @@
 				TargetAttributes = {
 					C0909CED1D96384E00E3093A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = R259FA7KPA;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					C0909D011D96384E00E3093A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -251,12 +311,136 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0906773D501825572FA0F09E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		44563E52B7B51C62754BE77E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44A2FEEFD8A1AC1DC21BBABA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperNOVA-app/Pods-SuperNOVA-app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76546F435350F4F340F9FF27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A99BFB798EA0D8999B6B03A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CF06437DFF7BC063741155A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CF4C1624526A65F79ECCCE13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2372608099E659182293F07 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SuperNOVA-appUITests/Pods-SuperNOVA-appUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0909CEA1D96384E00E3093A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C0909CF41D96384E00E3093A /* ViewController.swift in Sources */,
+				C0909D201D964DC100E3093A /* MapViewController.swift in Sources */,
 				C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,28 +581,37 @@
 		};
 		C0909D171D96384E00E3093A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B91B2231A7128635D6BE9BC /* Pods-SuperNOVA-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SuperNOVA-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "supernova.SuperNOVA-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		C0909D181D96384E00E3093A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD7CEFC2025109CCAAD027C3 /* Pods-SuperNOVA-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "SuperNOVA-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "supernova.SuperNOVA-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		C0909D1A1D96384E00E3093A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1E6707B03E65E887822F89A /* Pods-SuperNOVA-appTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "SuperNOVA-appTests/Info.plist";
@@ -431,6 +624,7 @@
 		};
 		C0909D1B1D96384E00E3093A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E9385A34463BBE40E04C120 /* Pods-SuperNOVA-appTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "SuperNOVA-appTests/Info.plist";
@@ -443,6 +637,7 @@
 		};
 		C0909D1D1D96384E00E3093A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8744C0A08A19BFA241DE443 /* Pods-SuperNOVA-appUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "SuperNOVA-appUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -454,6 +649,7 @@
 		};
 		C0909D1E1D96384E00E3093A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91BD3AB9252D092CA32800FC /* Pods-SuperNOVA-appUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "SuperNOVA-appUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -482,6 +678,7 @@
 				C0909D181D96384E00E3093A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0909D191D96384E00E3093A /* Build configuration list for PBXNativeTarget "SuperNOVA-appTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +687,7 @@
 				C0909D1B1D96384E00E3093A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0909D1C1D96384E00E3093A /* Build configuration list for PBXNativeTarget "SuperNOVA-appUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +696,7 @@
 				C0909D1E1D96384E00E3093A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

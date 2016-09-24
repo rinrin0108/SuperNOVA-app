@@ -47,7 +47,7 @@ class UserAPI {
         NSLog(params.debugDescription);
 
         // リクエストの送信
-        API.request("registUser", methodName: APIHTTPMethod.GET,params: params, sync: sync, success: success, failed: failed)
+        API.request("registUser", methodName: APIHTTPMethod.POST,params: params, sync: sync, success: success, failed: failed)
     }
     
     /// ユーザ情報取得API<br>

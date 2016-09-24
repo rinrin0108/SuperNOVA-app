@@ -23,7 +23,7 @@ class WaitingMapViewController: UIViewController {
         //ポーリング
         for(var i=0;i<10;i++){
             NSLog(dateFormatter.stringFromDate(now))
-            NSThread.sleepForTimeInterval(2)
+            NSThread.sleepForTimeInterval(3)
             
             //リクエスト状況を取得
             MergerAPI.getRequestStatus(appDelegate._id ,sync: false,
@@ -44,7 +44,9 @@ class WaitingMapViewController: UIViewController {
                                             
                                             NSLog(values.debugDescription);
                                             appDelegate._partner = values["teacher"] as! String
-                                            
+                                            NSLog("yaaaaaaaaa")
+                                            NSLog(values["status"] as! String!)
+                                            NSLog("yaaaaaaaaa")
                                             if(values["status"] as! String! == "res"){
                                                 ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
                                             }

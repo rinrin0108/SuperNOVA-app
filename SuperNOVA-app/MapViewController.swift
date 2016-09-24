@@ -17,7 +17,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBAction func responseTeacher(sender: UIButton) {
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        
+        NSLog("hooooooo")
+        NSLog(appDelegate._id)
+        NSLog("hooooooo")
+
         MergerAPI.responseTeacher(appDelegate._userid,_id: appDelegate._id ,sync: false,
                                 success:{
                                     values in let closure = {
@@ -232,6 +235,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         NSLog(values.debugDescription);
                                         appDelegate._partner = values["student"] as! String;
                                         appDelegate._id = values["_id"] as! String;
+                                        
+                                        NSLog("uryyyyy")
+                                        NSLog(appDelegate._id)
+                                        NSLog("uryyyyy")
                                     
                                     }
                                     // 通知の監視

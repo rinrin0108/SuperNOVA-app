@@ -15,6 +15,76 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     @IBAction func goAppoint(sender: UIButton) {
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        appDelegate._place = "SHOP01";
+        //FIXME
+        appDelegate._lat = "35.698353";
+        appDelegate._lng = "139.773114";
+        
+        //FIXME
+        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
+                                 success:{
+                                    values in let closure = {
+                                        NSLog("MapViewController success");
+                                        // 通信は成功したが、エラーが返ってきた場合
+                                        if(API.isError(values)){
+                                            NSLog("MapViewController isError");
+                                            /**
+                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                                             Indicator.windowClose()
+                                             */
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                message: values["errorMessage"] as! String)
+                                            return
+                                        }
+                                        
+                                        NSLog(values.debugDescription);
+                                    }
+                                    // 通知の監視
+                                    if(!NSThread.isMainThread()){
+                                        NSLog("MapViewController !NSThread.isMainThread()");
+                                        dispatch_sync(dispatch_get_main_queue()) {
+                                            closure()
+                                        }
+                                    } else {
+                                        NSLog("MapViewController closure");
+                                        // 恐らく実行されない
+                                        closure()
+                                    }
+                                    
+            },
+                                 failed: {
+                                    id, message in let closure = {
+                                        NSLog("MapViewController failed");
+                                        /**
+                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                                         Indicator.windowClose()
+                                         */
+                                        // 失敗した場合エラー情報を表示
+                                        if(id == -2) {
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                                        } else {
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                                        }
+                                    }
+                                    // 通知の監視
+                                    if(!NSThread.isMainThread()){
+                                        NSLog("MapViewController !NSThread.isMainThread() 2");
+                                        dispatch_sync(dispatch_get_main_queue()) {
+                                            NSLog("MapViewController closure 2");
+                                            closure()
+                                        }
+                                    } else {
+                                        NSLog("MapViewController closure 3");
+                                        //恐らく実行されない
+                                        closure()
+                                    }
+            }
+        )
+
+        
         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toCallView")
     }
     //

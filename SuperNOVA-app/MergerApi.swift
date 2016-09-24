@@ -25,7 +25,7 @@ class MergerAPI {
     /// - parameter success:        成功時コールバックメソッド(let Dictionary<String,AnyObject>) -> Void!)
     /// - parameter failed:         失敗時コールバックメソッド(let (Int?,String?) -> Void?)
     ///
-    static func updateUserLocation(let userId : String!, let lat : String?, let lng : String?, let lang : String?, let place : String?,let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+    static func requestTeacher(let userId : String!, let lat : String?, let lng : String?, let lang : String?, let place : String?,let time :String?, let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
         
         //パラメータの設定
         var params : Dictionary<String,String?>= Dictionary<String,String?>()
@@ -34,9 +34,10 @@ class MergerAPI {
         params.updateValue(lng!,    forKey: "lng")
         params.updateValue(lang!,    forKey: "lang")
         params.updateValue(place!,    forKey: "place")
+        params.updateValue(time!,    forKey: "time")
         
         //リクエストの送信
-        API.request("updateUserLocation", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
+        API.request("requestTeacher", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
     }
     
     /// リクエスト状況を取得API<br>
@@ -143,7 +144,7 @@ class MergerAPI {
     }
     
     
-    /// マッチングキャンセルAPI<br>
+    /// ピッチングの到着時間を更新API<br>
     /// <br>
     /// successのクロージャに対して、以下のパラメータを含めコールバックする。<br>
     ///

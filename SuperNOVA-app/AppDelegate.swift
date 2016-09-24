@@ -19,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _userid   :String!
     var _image    :String!
     var _fullname :String!
+    var _place     :String!
+    var _id       :String!
+    var _lang     :String!
+    var _native     :String!
+    var _lat      :String!
+    var _lng      :String!
+    var _time      :String!
+    var _teacher  :String!
     
     // 
     //var initializedLocation: Bool = false;

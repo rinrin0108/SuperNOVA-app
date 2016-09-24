@@ -20,9 +20,24 @@ class UserRegisterViewController: UIViewController {
     private var profileImageURL :String!
     private var selectImage: UIImage?
     private var isLoaded :Bool = false
+    
+    
+    @IBAction func changeJapanese(sender: UIButton) {
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        appDelegate._lang = "Japanese"
+        appDelegate._native = "English"
+    }
 
+    @IBAction func changeEnglish(sender: UIButton) {
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        appDelegate._lang = "English"
+        appDelegate._native = "Japanese"
+    }
+    
+    
     @IBAction func registUser(sender: UIButton) {
         NSLog("UserRegisterViewController registUser");
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         /**
          *  画像ではなく画像URLを使用
         var data : NSData? = nil
@@ -48,8 +63,13 @@ class UserRegisterViewController: UIViewController {
         Indicator.windowSet()
         */
         
+        if(appDelegate._lang == ""){
+            appDelegate._lang      = "Japanese";
+            appDelegate._native      = "English";
+        }
+        
         // ユーザ登録API呼び出し
-        UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text,profileImageURL: profileImageURL ,sync: false,
+        UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text , lang: appDelegate._lang , native: appDelegate._native, profileImageURL: profileImageURL ,sync: false,
                         success:{
                         values in let closure = {
                             NSLog("UserRegisterViewController success");
@@ -72,6 +92,11 @@ class UserRegisterViewController: UIViewController {
                             appDelegate._userid    = self.email.text
                             appDelegate._image     = self.profileImageURL
                             appDelegate._fullname  = self.first_name.text! + self.last_name.text!
+                            //FIXME
+                            if(appDelegate._lang == ""){
+                                appDelegate._lang      = "Japanese";
+                                appDelegate._native      = "English";
+                            }
                             
                             /**
                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）

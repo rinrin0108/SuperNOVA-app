@@ -35,7 +35,7 @@ class UserAPI {
     /// - parameter success:        成功時コールバックメソッド(let Dictionary<String,AnyObject>) -> Void!)
     /// - parameter failed:         失敗時コールバックメソッド(let (Int?,String?) -> Void?)
     ///
-    static func registUser(let email : String!, let first_name : String!, let last_name : String!,let profileImageURL:String!, let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+    static func registUser(let email : String!, let first_name : String!, let last_name : String!, let lang:String!, let native:String! ,let profileImageURL:String!, let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
         
         NSLog("UserApi registUser");
         //パラメータの設定
@@ -44,6 +44,8 @@ class UserAPI {
         params.updateValue(first_name,            forKey: "firstname")
         params.updateValue(last_name,            forKey: "lastname")
         params.updateValue(profileImageURL, forKey: "image")
+        params.updateValue(lang, forKey: "lang")
+        params.updateValue(native, forKey: "native")
         NSLog(params.debugDescription);
 
         // リクエストの送信
@@ -97,6 +99,28 @@ class UserAPI {
         //リクエストの送信
         API.request("updateUserLocation", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
     }
+    
+    /// ユーザ評価更新API<br>
+    /// <br>
+    /// successのクロージャに対して、以下のパラメータを含めコールバックする。<br>
+    ///
+    /// - parameter userId:         ユーザID(let String!)
+    /// - parameter rate:            rate(let String!)
+    /// - parameter sync:           同期設定(true=同期,false=非同期)(let Bool!)
+    /// - parameter success:        成功時コールバックメソッド(let Dictionary<String,AnyObject>) -> Void!)
+    /// - parameter failed:         失敗時コールバックメソッド(let (Int?,String?) -> Void?)
+    ///
+    static func updateUserRate(let userId : String!, let rate : String?, let sync : Bool!, let success:((Dictionary<String,AnyObject>) -> Void)!, failed:((Int?,String?) -> Void)?){
+        
+        //パラメータの設定
+        var params : Dictionary<String,String?>= Dictionary<String,String?>()
+        params.updateValue(userId,  forKey: "userid")
+        params.updateValue(rate!,    forKey: "rate")
+        
+        //リクエストの送信
+        API.request("updateUserRate", methodName: APIHTTPMethod.GET, params: params, sync: sync, success: success, failed: failed)
+    }
+    
     
 }
 

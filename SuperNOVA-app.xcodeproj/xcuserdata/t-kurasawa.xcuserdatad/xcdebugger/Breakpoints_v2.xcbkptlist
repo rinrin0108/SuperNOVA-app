@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SuperNOVA-app/UserRegisterViewController.swift"
-            timestampString = "496428180.827991"
+            timestampString = "496440899.389941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "encode(_:)"
             landmarkType = "5">
          </BreakpointContent>

@@ -8,6 +8,7 @@
         <!--UserRegisterViewController-->
         <scene sceneID="d8Z-QP-g34">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sP4-2h-c5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="2BP-jT-fZu" userLabel="UserRegisterViewController" customClass="UserRegisterViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Abz-zH-jUb"/>
@@ -16,13 +17,51 @@
                     <view key="view" contentMode="scaleToFill" id="7C0-sQ-15I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-Sr-yRc" userLabel="Profile">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-yn-RpK">
+                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <state key="normal" title="これで登録する" backgroundImage="default_btn"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default_user" translatesAutoresizingMaskIntoConstraints="NO" id="mRl-sQ-UWI">
+                                <rect key="frame" x="40" y="198" width="91" height="84"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FirstName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyF-dA-GX2">
+                                <rect key="frame" x="150" y="212" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUP-MN-B3x">
+                                <rect key="frame" x="150" y="251" width="190" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MailAddress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFI-QR-HPN">
+                                <rect key="frame" x="40" y="300" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="this is annouce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyY-sk-cCW" userLabel="Announce">
+                                <rect key="frame" x="37" y="340" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" id="d4W-dF-geV"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sP4-2h-c5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-123.5" y="334.5"/>
+            <point key="canvasLocation" x="-209.5" y="334.5"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="qzt-Q8-v9J">
@@ -36,9 +75,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Splash" translatesAutoresizingMaskIntoConstraints="NO" id="8rN-qP-Gly">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZh-K5-VSt">
-                                <rect key="frame" x="41" y="551" width="293" height="54"/>
-                                <state key="normal" title="Login" image="default_btn"/>
+                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <accessibility key="accessibilityConfiguration" label="あああ"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="はじめる" backgroundImage="default_btn"/>
                                 <connections>
                                     <action selector="pushLogin:" destination="Pux-Hs-JEb" eventType="touchUpInside" id="XMT-Ti-607"/>
                                 </connections>
@@ -53,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKB-of-Q97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-543.5" y="334.5"/>
+            <point key="canvasLocation" x="-743.5" y="334.5"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -197,6 +241,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Splash" width="375" height="667"/>
         <image name="default_btn" width="694" height="104"/>
+        <image name="default_user" width="320" height="320"/>
     </resources>
 </document>

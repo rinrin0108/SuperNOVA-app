@@ -30,6 +30,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var center = CLLocationCoordinate2DMake(35.698353,139.773114)
     
     @IBOutlet weak var googleMap: GMSMapView!
+    @IBOutlet weak var MarkerTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,9 +152,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     dispatch_async(dispatch_get_main_queue(), {
                                         NSLog("result:\(result)")
                                         let mposition = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
+                                        
                                         marker = GMSMarker(position: mposition)
                                         marker.title = result["name"] as? String
-                                        marker.icon = result["icon"] as? UIImage//UIImage(named: "marker")
+                                        //let tmpurl = NSURL(string: result["icon"]);
+                                        let tmpurl = result["icon"]
+                                        
+                                        //var err: NSError?
+                                        let imageData :NSData = NSData(contentsOfURL: NSURL(string: tmpurl! as! String)! )!;
+                                        
+                                        
+                                        marker.icon = UIImage(data:imageData);//UIImage//UIImage(named: "marker")
                                         marker.map = self.googleMap
 
                                     });
@@ -177,7 +186,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         NSLog("marker:\(marker)")
         NSLog("title:\(marker.title)")
         NSLog("icon :\(marker.icon)")
-        NSLog("map  :\(marker.map)")
+        NSLog("iconView :\(marker.iconView)")
+        NSLog("userData :\(marker.userData)")
+        MarkerTitle.text = marker.title
+        
         //self.view.addSubview(mapView)
         return false
     }

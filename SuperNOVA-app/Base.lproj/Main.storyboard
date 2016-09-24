@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pux-Hs-JEb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Map-->
+        <!--UserRegisterViewController-->
+        <scene sceneID="d8Z-QP-g34">
+            <objects>
+                <viewController id="2BP-jT-fZu" userLabel="UserRegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Abz-zH-jUb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z4F-ZG-dcU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7C0-sQ-15I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sP4-2h-c5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123.5" y="334.5"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="qzt-Q8-v9J">
+            <objects>
+                <viewController id="Pux-Hs-JEb" userLabel="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XED-Vs-mxL"/>
+                        <viewControllerLayoutGuide type="bottom" id="5KR-4r-MxZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T0d-8t-WaN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKB-of-Q97" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539.5" y="334.5"/>
+        </scene>
+        <!--MapViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Map" customClass="ViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="MapViewController" customClass="ViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="287.5" y="334.5"/>
         </scene>
-        <!--Conversation-->
+        <!--ConversationViewController-->
         <scene sceneID="ig4-Nm-mbQ">
             <objects>
-                <viewController id="nQX-MV-Um7" userLabel="Conversation" sceneMemberID="viewController">
+                <viewController id="nQX-MV-Um7" userLabel="ConversationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ay9-A2-7yx"/>
                         <viewControllerLayoutGuide type="bottom" id="RNL-Y9-fWY"/>
@@ -96,10 +134,10 @@
             </objects>
             <point key="canvasLocation" x="721.5" y="334.5"/>
         </scene>
-        <!--Evaluate-->
+        <!--EvaluateViewController-->
         <scene sceneID="HnA-RV-2im">
             <objects>
-                <viewController id="TEA-QB-het" userLabel="Evaluate" sceneMemberID="viewController">
+                <viewController id="TEA-QB-het" userLabel="EvaluateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p4m-I9-2Eq"/>
                         <viewControllerLayoutGuide type="bottom" id="sod-yS-afI"/>

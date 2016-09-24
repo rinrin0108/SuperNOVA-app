@@ -27,7 +27,7 @@
         <!--LoginViewController-->
         <scene sceneID="qzt-Q8-v9J">
             <objects>
-                <viewController id="Pux-Hs-JEb" userLabel="LoginViewController" sceneMemberID="viewController">
+                <viewController id="Pux-Hs-JEb" userLabel="LoginViewController" customClass="LoginViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XED-Vs-mxL"/>
                         <viewControllerLayoutGuide type="bottom" id="5KR-4r-MxZ"/>
@@ -39,6 +39,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZh-K5-VSt">
                                 <rect key="frame" x="41" y="551" width="293" height="54"/>
                                 <state key="normal" title="Login" image="default_btn"/>
+                                <connections>
+                                    <action selector="pushLogin:" destination="Pux-Hs-JEb" eventType="touchUpInside" id="XMT-Ti-607"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

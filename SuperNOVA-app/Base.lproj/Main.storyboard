@@ -8,7 +8,7 @@
         <!--UserRegisterViewController-->
         <scene sceneID="d8Z-QP-g34">
             <objects>
-                <viewController id="2BP-jT-fZu" userLabel="UserRegisterViewController" sceneMemberID="viewController">
+                <viewController id="2BP-jT-fZu" userLabel="UserRegisterViewController" customClass="UserRegisterViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Abz-zH-jUb"/>
                         <viewControllerLayoutGuide type="bottom" id="Z4F-ZG-dcU"/>
@@ -35,13 +35,22 @@
                     <view key="view" contentMode="scaleToFill" id="T0d-8t-WaN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZh-K5-VSt">
+                                <rect key="frame" x="41" y="551" width="293" height="54"/>
+                                <state key="normal" title="Login" image="default_btn"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="2BP-jT-fZu" kind="show" id="Mwh-u6-Zhm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKB-of-Q97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539.5" y="334.5"/>
+            <point key="canvasLocation" x="-543.5" y="334.5"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -184,4 +193,7 @@
             <point key="canvasLocation" x="1159.5" y="334.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default_btn" width="694" height="104"/>
+    </resources>
 </document>

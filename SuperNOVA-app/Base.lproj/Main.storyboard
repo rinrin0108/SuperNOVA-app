@@ -156,7 +156,7 @@
                                             <action selector="goAppoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HL9-OT-bPb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Xf-1q4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒーシブヤ" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Xf-1q4">
                                         <rect key="frame" x="131" y="12" width="222" height="85"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -223,6 +223,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-P6-Xk9">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒーシブヤ" translatesAutoresizingMaskIntoConstraints="NO" id="xda-zk-qec">
+                                <rect key="frame" x="135" y="485" width="205" height="85"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -269,7 +275,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_white" translatesAutoresizingMaskIntoConstraints="NO" id="u4O-tW-BUu">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-Gy-Y2b" userLabel="shop_name">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスシブヤ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-Gy-Y2b" userLabel="shop_name">
                                 <rect key="frame" x="133" y="486" width="207" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -348,6 +354,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="name_student" destination="Wu7-Sk-pYw" id="ECs-59-o2g"/>
+                        <outlet property="name_teacher" destination="DuL-V1-6xn" id="Ohq-Xb-Wc1"/>
+                        <outlet property="photo_student" destination="WnC-JN-F3F" id="2og-dd-Llv"/>
+                        <outlet property="teacher_photo" destination="pZ7-Zl-yWo" id="h3D-en-9qa"/>
                         <segue destination="TEA-QB-het" kind="show" identifier="toEvaluateView" id="Xag-Cz-rac"/>
                     </connections>
                 </viewController>
@@ -433,6 +443,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="name_teacher" destination="qJm-kB-8dW" id="zL8-pU-GnP"/>
+                        <outlet property="photo_teacher" destination="bpA-oI-hY7" id="kmV-Sl-ad0"/>
                         <outlet property="rate_image" destination="TsZ-eJ-Wa3" id="pox-d3-iRP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="CBP-oz-Lc4"/>
                     </connections>
@@ -490,7 +502,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="ANS-X2-Lzd">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒーシブヤテン" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-FK-RvN">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒー渋谷" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-FK-RvN">
                                 <rect key="frame" x="145" y="100" width="210" height="85"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -600,7 +612,7 @@
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pdV-4q-DF1"/>
-        <segue reference="CBP-oz-Lc4"/>
+        <segue reference="PBm-En-xVe"/>
+        <segue reference="IwH-KW-BsE"/>
     </inferredMetricsTieBreakers>
 </document>

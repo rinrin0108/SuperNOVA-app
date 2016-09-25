@@ -25,17 +25,7 @@ class EncounterViewController: UIViewController {
         self.photo_student.image =  API.downloadImage(appDelegate._image)
         
         //教師
-        
-
-    }
-    
-    
-    @IBAction func start(sender: UIButton) {
-        
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        
-        // FIXME 本当はここじゃなくてMapのところ
-        MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._id ,sync: false,
+        UserAPI.getUser(appDelegate._partner,sync: false,
                                   success:{
                                     values in let closure = {
                                         NSLog("ConversationViewController success");
@@ -52,6 +42,10 @@ class EncounterViewController: UIViewController {
                                         }
                                         
                                         NSLog(values.debugDescription);
+                                        appDelegate._partnerimage = values["image"] as! String
+                                        appDelegate._partnerName = values["fullname"] as! String
+                                        self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
+                                        self.name_teacher.text = appDelegate._partnerName
                                         
                                     }
                                     // 通知の監視
@@ -97,6 +91,18 @@ class EncounterViewController: UIViewController {
                                     }
             }
         )
+        
+        
+        
+        
+        
+
+    }
+    
+    
+    @IBAction func start(sender: UIButton) {
+        
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         
         //ピッチングの開始時間を更新

@@ -11,6 +11,23 @@ import UIKit
 
 class ConversationViewController: UIViewController {
     
+    @IBOutlet weak var photo_teacher: UIImageView!
+    @IBOutlet weak var photo_student: UIImageView!
+    
+    @IBOutlet weak var name_teacher: UILabel!
+    @IBOutlet weak var name_student: UILabel!
+    
+    override func viewDidLoad() {
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        //生徒
+        self.name_student.text = appDelegate._fullname
+        self.photo_student.image =  API.downloadImage(appDelegate._image)
+        //教師
+        self.name_teacher.text = appDelegate._partnerName
+        self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
+
+    }
+    
     @IBAction func start(sender: UIButton) {
         
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得

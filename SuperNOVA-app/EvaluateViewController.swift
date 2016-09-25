@@ -11,6 +11,10 @@ import UIKit
 
 class EvaluateViewController: UIViewController {
     
+    @IBOutlet weak var photo_teacher: UIImageView!
+    
+    @IBOutlet weak var name_teacher: UILabel!
+    
     @IBOutlet weak var rate_image: UIImageView!
     var rating: String = "0"
     
@@ -44,6 +48,13 @@ class EvaluateViewController: UIViewController {
         rate_image.image = UIImage(named: "rating_star_5")
         rating = "5";
 
+    }
+    
+    override func viewDidLoad() {
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        //教師
+        self.name_teacher.text = appDelegate._partnerName
+        self.photo_teacher.image =  API.downloadImage(appDelegate._partnerimage)
     }
     
     
@@ -116,6 +127,6 @@ class EvaluateViewController: UIViewController {
         )
 
         
-        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+
     }
 }

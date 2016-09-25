@@ -21,14 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _fullname :String!
     var _place     :String!
     var _id       :String!
+    var _idpartner       :String!
     var _lang     :String!
     var _native     :String!
     var _lat      :String!
     var _lng      :String!
     var _time      :String!
-    var _teacher  :String!
-    var _teacherName :String!
-    var _teacherimage :String!
+    var _partner  :String!
+    var _partnerName :String!
+    var _partnerimage :String!
     
     // 
     //var initializedLocation: Bool = false;

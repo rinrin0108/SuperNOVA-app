@@ -49,6 +49,10 @@ class CallViewController: UIViewController {
                                 NSLog(values.debugDescription);
                                 appDelegate._id = values["_id"] as! String
                                 
+                                NSLog("hoaaaaa")
+                                NSLog(appDelegate._id)
+                                NSLog("hoaaaaa")
+                                
                                 // 画面遷移
                                 ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toWaitingMapView")
                             }

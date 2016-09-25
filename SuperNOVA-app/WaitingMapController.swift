@@ -20,13 +20,19 @@ class WaitingMapViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         NSLog(dateFormatter.stringFromDate(now))
         
+        NSLog("waitinggggggg")
+        NSLog(appDelegate._id)
+        NSLog("waitinggggggg")
+        
+        var flg = false;
+        
         //ポーリング
         for(var i=0;i<10;i++){
             NSLog(dateFormatter.stringFromDate(now))
             NSThread.sleepForTimeInterval(1)
             
             //リクエスト状況を取得
-            MergerAPI.getRequestStatus(appDelegate._id ,sync: false,
+            MergerAPI.getRequestStatus(appDelegate._id ,sync: true,
                                        success:{
                                         values in let closure = {
                                             NSLog("ConversationViewController success");
@@ -43,8 +49,19 @@ class WaitingMapViewController: UIViewController {
                                             }
                                             
                                             NSLog(values.debugDescription);
-                                            appDelegate._teacher = values["teacher"] as! String
-                                            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+                                            appDelegate._partner = values["teacher"] as! String
+                                            NSLog("yaaaaaaaaa")
+                                            NSLog(values["status"] as! String!)
+                                            NSLog("yaaaaaaaaa")
+                                            if(values["status"] as! String! == "req"){
+                                                NSLog("rererere")
+                                            }
+
+                                            if(values["status"] as! String! == "res"){
+                                                NSLog("ifififififif")
+                                                flg = true
+                                                ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+                                            }
                                             
                                         }
                                         // 通知の監視
@@ -94,8 +111,14 @@ class WaitingMapViewController: UIViewController {
             
             
         }
-        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+        if(flg){
+            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
+        } else {
+            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+        }
+        
     }
+    
     
     override func viewDidLoad() {
     }

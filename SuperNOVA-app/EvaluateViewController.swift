@@ -18,7 +18,7 @@ class EvaluateViewController: UIViewController {
         var rate : String! = "3"
         
         //ピッチング終了リクエスト
-        UserAPI.updateUserRate(appDelegate._teacher,rate: rate ,sync: false,
+        UserAPI.updateUserRate(appDelegate._partner,rate: rate ,sync: false,
                                  success:{
                                     values in let closure = {
                                         NSLog("EvaluateViewController success");

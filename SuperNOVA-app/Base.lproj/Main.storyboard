@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comfirm_bg" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-Sr-yRc" userLabel="confirm_bg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-yn-RpK">
                                 <rect key="frame" x="40" y="550" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -70,9 +73,6 @@
                                     <action selector="changeEnglish:" destination="2BP-jT-fZu" eventType="touchUpInside" id="6fB-1V-pyy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comfirm_bg" translatesAutoresizingMaskIntoConstraints="NO" id="PDv-Sr-yRc" userLabel="confirm_bg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -152,6 +152,12 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TdH-TP-93a" userLabel="Marker Image">
                                         <rect key="frame" x="8" y="0.0" width="100" height="100"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvz-Xh-DNa" userLabel="segueButton">
+                                        <rect key="frame" x="0.0" y="-7" width="375" height="115"/>
+                                        <connections>
+                                            <action selector="goAppoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HL9-OT-bPb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -162,6 +168,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="b2c-fk-SEk" userLabel="logo_for_paper">
                                 <rect key="frame" x="145" y="20" width="85" height="29"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
+                                <rect key="frame" x="20" y="20" width="335" height="85"/>
+                                <connections>
+                                    <action selector="responseTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGT-YV-uOI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -171,11 +183,48 @@
                         <outlet property="MarkerTitle" destination="a57-Xf-1q4" id="U0c-3A-gNg"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
                         <segue destination="RaJ-I0-fIJ" kind="show" identifier="toCallView" id="hZu-oM-aHt"/>
+                        <segue destination="n2Y-Nr-LwU" kind="show" identifier="toTeacherWaitingView" id="bm8-xs-QUD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295.5" y="324.5"/>
+            <point key="canvasLocation" x="274.5" y="324.5"/>
+        </scene>
+        <!--TeacherWaitingViewController-->
+        <scene sceneID="iWU-FQ-gTf">
+            <objects>
+                <viewController id="n2Y-Nr-LwU" userLabel="TeacherWaitingViewController" customClass="TeacherWaitingMapViewController" customModule="SuperNOVA_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OqH-5Z-GZ9"/>
+                        <viewControllerLayoutGuide type="bottom" id="rYU-hQ-mMm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="40s-Vb-IyP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isX-O7-C8B">
+                                <rect key="frame" x="40" y="600" width="300" height="50"/>
+                                <state key="normal" title="CheckIn" backgroundImage="orange_btn">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkin:" destination="n2Y-Nr-LwU" eventType="touchUpInside" id="iNd-YK-Jng"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-vt-Vac" userLabel="partnerview">
+                                <rect key="frame" x="40" y="486" width="95" height="97"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="PBm-En-xVe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-Oz-OvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="295.5" y="1266.5"/>
         </scene>
         <!--WaitingMapViewController-->
         <scene sceneID="vcs-3r-uAC">
@@ -482,5 +531,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="d4W-dF-geV"/>
+        <segue reference="pdV-4q-DF1"/>
     </inferredMetricsTieBreakers>
 </document>

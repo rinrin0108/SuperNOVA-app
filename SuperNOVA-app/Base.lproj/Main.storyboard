@@ -53,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRl-sQ-UWI" userLabel="profile">
-                                <rect key="frame" x="40" y="125" width="91" height="84"/>
+                                <rect key="frame" x="40" y="125" width="85" height="85"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaR-qg-kgp" userLabel="japanese">
                                 <rect key="frame" x="47" y="394" width="115" height="30"/>
@@ -140,36 +140,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="d1o-8T-utO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-hK-CXA" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="140" width="375" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjD-rH-ksa">
                                 <rect key="frame" x="0.0" y="559" width="375" height="108"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Xf-1q4">
-                                        <rect key="frame" x="116" y="0.0" width="242" height="100"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TdH-TP-93a" userLabel="Marker Image">
-                                        <rect key="frame" x="8" y="0.0" width="100" height="100"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvz-Xh-DNa" userLabel="segueButton">
-                                        <rect key="frame" x="0.0" y="-7" width="375" height="115"/>
+                                        <rect key="frame" x="0.0" y="32" width="375" height="76"/>
                                         <connections>
                                             <action selector="goAppoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HL9-OT-bPb"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Xf-1q4">
+                                        <rect key="frame" x="131" y="12" width="222" height="85"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_shop_small" translatesAutoresizingMaskIntoConstraints="NO" id="TdH-TP-93a" userLabel="Marker Image">
+                                        <rect key="frame" x="40" y="11" width="85" height="85"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-hK-CXA" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="111" width="375" height="446"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="b2c-fk-SEk" userLabel="logo_for_paper">
-                                <rect key="frame" x="145" y="20" width="85" height="29"/>
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
-                                <rect key="frame" x="20" y="20" width="335" height="85"/>
+                                <rect key="frame" x="20" y="57" width="335" height="48"/>
                                 <connections>
                                     <action selector="responseTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGT-YV-uOI"/>
                                 </connections>
@@ -212,7 +215,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-vt-Vac" userLabel="partnerview">
-                                <rect key="frame" x="40" y="486" width="95" height="97"/>
+                                <rect key="frame" x="40" y="485" width="85" height="85"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-TG-7g9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-P6-Xk9">
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbX-Oz-OvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295.5" y="1266.5"/>
+            <point key="canvasLocation" x="274.5" y="1266.5"/>
         </scene>
         <!--WaitingMapViewController-->
         <scene sceneID="vcs-3r-uAC">
@@ -243,23 +252,29 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-dD-Jdc" userLabel="shop_image">
-                                <rect key="frame" x="20" y="511" width="82" height="81"/>
+                                <rect key="frame" x="40" y="486" width="85" height="85"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-Gy-Y2b" userLabel="shop_name">
-                                <rect key="frame" x="113" y="511" width="242" height="81"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-WC-mP5">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
-                                <state key="normal" title="ここにCall" backgroundImage="orange_btn">
+                                <state key="normal" title="ここにCall" backgroundImage="btn_green">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="waiting:" destination="3RO-Vd-9TR" eventType="touchUpInside" id="wJg-fR-09m"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="Ajb-lo-Rxf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_white" translatesAutoresizingMaskIntoConstraints="NO" id="u4O-tW-BUu">
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-Gy-Y2b" userLabel="shop_name">
+                                <rect key="frame" x="133" y="486" width="207" height="85"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -285,28 +300,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_class" translatesAutoresizingMaskIntoConstraints="NO" id="7qZ-EC-2lx">
+                                <rect key="frame" x="0.0" y="80" width="375" height="590"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_student" translatesAutoresizingMaskIntoConstraints="NO" id="WnC-JN-F3F" userLabel="photo_student">
-                                <rect key="frame" x="40" y="72" width="128" height="128"/>
+                                <rect key="frame" x="45" y="100" width="128" height="128"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="pZ7-Zl-yWo" userLabel="photo_teacher">
-                                <rect key="frame" x="212" y="72" width="128" height="128"/>
+                                <rect key="frame" x="215" y="100" width="128" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Takaaki Kurasawa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu7-Sk-pYw">
-                                <rect key="frame" x="20" y="231" width="168" height="21"/>
+                                <rect key="frame" x="20" y="250" width="170" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LisaLisa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuL-V1-6xn">
-                                <rect key="frame" x="196" y="231" width="159" height="21"/>
+                                <rect key="frame" x="200" y="250" width="170" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiR-hU-muv">
-                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="END" backgroundImage="orange_btn">
+                                <state key="normal" title="END" backgroundImage="btn_green">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -314,11 +332,17 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fnR-hC-3zf">
-                                <rect key="frame" x="40" y="296" width="315" height="120"/>
+                                <rect key="frame" x="40" y="360" width="315" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="DGV-CJ-X4i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_white" translatesAutoresizingMaskIntoConstraints="NO" id="e9p-ak-vw0">
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -343,32 +367,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_class" translatesAutoresizingMaskIntoConstraints="NO" id="zOe-9O-Mbs">
+                                <rect key="frame" x="0.0" y="80" width="375" height="590"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-sa-3G6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-oI-hY7" userLabel="photo_teacher">
-                                <rect key="frame" x="123" y="68" width="128" height="128"/>
+                                <rect key="frame" x="125" y="100" width="128" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LisaLisa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-kB-8dW">
-                                <rect key="frame" x="123" y="228" width="128" height="21"/>
+                                <rect key="frame" x="104" y="250" width="170" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDh-53-mYu">
-                                <rect key="frame" x="32" y="307" width="55" height="54"/>
+                                <rect key="frame" x="32" y="398" width="55" height="54"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEY-vV-UGm">
-                                <rect key="frame" x="95" y="307" width="54" height="54"/>
+                                <rect key="frame" x="95" y="398" width="54" height="54"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sd2-xH-imj">
-                                <rect key="frame" x="160" y="307" width="55" height="54"/>
+                                <rect key="frame" x="159" y="398" width="55" height="54"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKS-cK-YbM">
-                                <rect key="frame" x="223" y="307" width="56" height="54"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V9n-FQ-IDf">
-                                <rect key="frame" x="286" y="307" width="54" height="54"/>
+                                <rect key="frame" x="222" y="398" width="56" height="54"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="My0-yc-cg3">
-                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="OK" backgroundImage="orange_btn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -378,7 +405,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rating_star_off" translatesAutoresizingMaskIntoConstraints="NO" id="TsZ-eJ-Wa3" userLabel="background_star">
-                                <rect key="frame" x="32" y="307" width="308" height="54"/>
+                                <rect key="frame" x="32" y="404" width="308" height="41"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="kRe-2K-fXE">
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V9n-FQ-IDf">
+                                <rect key="frame" x="286" y="398" width="54" height="54"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -405,16 +438,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_shop_big" translatesAutoresizingMaskIntoConstraints="NO" id="NHt-uc-J9a">
-                                <rect key="frame" x="20" y="20" width="132" height="121"/>
+                                <rect key="frame" x="45" y="100" width="85" height="85"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒーシブヤテン" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-FK-RvN">
-                                <rect key="frame" x="160" y="20" width="195" height="121"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="boy-0Q-2HQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3E-Nv-Dwl">
-                                <rect key="frame" x="40" y="550" width="300" height="50"/>
+                                <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="OK" backgroundImage="orange_btn">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -441,6 +471,15 @@
                                     <action selector="change60m:" destination="RaJ-I0-fIJ" eventType="touchUpInside" id="ouc-C6-BHV"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="ANS-X2-Lzd">
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒーシブヤテン" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-FK-RvN">
+                                <rect key="frame" x="145" y="100" width="210" height="85"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -465,32 +504,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_class" translatesAutoresizingMaskIntoConstraints="NO" id="ePP-WJ-0hl">
+                                <rect key="frame" x="0.0" y="80" width="375" height="590"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="IUa-Qs-8mL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_student" translatesAutoresizingMaskIntoConstraints="NO" id="YL0-Ve-ie9" userLabel="photo_student">
-                                <rect key="frame" x="35" y="83" width="128" height="128"/>
+                                <rect key="frame" x="45" y="100" width="128" height="128"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_teacher" translatesAutoresizingMaskIntoConstraints="NO" id="yfQ-Av-njo" userLabel="photo_teacher">
-                                <rect key="frame" x="204" y="84" width="128" height="128"/>
+                                <rect key="frame" x="215" y="100" width="128" height="128"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Takaaki Kurasawa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z5-BM-T52">
-                                <rect key="frame" x="15" y="238" width="168" height="21"/>
+                                <rect key="frame" x="20" y="250" width="170" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LisaLisa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-yd-DO2">
-                                <rect key="frame" x="189" y="241" width="159" height="21"/>
+                                <rect key="frame" x="200" y="250" width="170" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0k-Gz-pVj">
-                                <rect key="frame" x="30" y="300" width="315" height="120"/>
+                                <rect key="frame" x="40" y="360" width="315" height="120"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzH-11-GAW">
-                                <rect key="frame" x="37" y="551" width="300" height="50"/>
+                                <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="START" backgroundImage="orange_btn">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -500,6 +545,9 @@
                                     <action selector="start:" destination="fK8-Bo-zSv" eventType="touchUpInside" id="ysW-Y8-e6M"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="72e-4Y-817">
+                                <rect key="frame" x="145" y="30" width="85" height="29"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -518,19 +566,25 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_class" width="750" height="1334"/>
+        <image name="bg_header" width="750" height="163"/>
+        <image name="bg_header_black" width="750" height="163"/>
+        <image name="btn_green" width="600" height="100"/>
         <image name="btn_login" width="600" height="100"/>
         <image name="comfirm_bg" width="750" height="1334"/>
         <image name="logo_header_black" width="171" height="59"/>
+        <image name="logo_header_white" width="171" height="59"/>
         <image name="logo_splash" width="361" height="105"/>
         <image name="orange_btn" width="600" height="100"/>
         <image name="photo_shop_big" width="120" height="120"/>
+        <image name="photo_shop_small" width="64" height="64"/>
         <image name="photo_student" width="248" height="248"/>
         <image name="photo_teacher" width="248" height="248"/>
         <image name="rating_star_off" width="285" height="44"/>
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d4W-dF-geV"/>
-        <segue reference="pdV-4q-DF1"/>
+        <segue reference="PBm-En-xVe"/>
+        <segue reference="IwH-KW-BsE"/>
     </inferredMetricsTieBreakers>
 </document>

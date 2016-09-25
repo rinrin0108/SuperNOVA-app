@@ -17,12 +17,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBAction func responseTeacher(sender: UIButton) {
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        NSLog("hooooooo")
-        NSLog(appDelegate._idpartner)
-        NSLog("hooooooo")
-
-        MergerAPI.responseTeacher(appDelegate._userid,_id: appDelegate._id ,sync: false,
-                                success:{
+        appDelegate._place = "SHOP01";
+        //FIXME
+        appDelegate._lat = "35.698353";
+        appDelegate._lng = "139.773114";
+        
+        //FIXME
+        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
+                                 success:{
                                     values in let closure = {
                                         NSLog("ConversationViewController success");
                                         // 通信は成功したが、エラーが返ってきた場合
@@ -30,7 +32,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             NSLog("ConversationViewController isError");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
-                                             Indicator.windowClose()
+                                             Indicator.windowClos()
+                                             
                                              */
                                             AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                 message: values["errorMessage"] as! String)
@@ -111,6 +114,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var center = CLLocationCoordinate2DMake(35.698353,139.773114)
     
     @IBOutlet weak var googleMap: GMSMapView!
+    @IBOutlet weak var MarkerTitle: UILabel!
+    @IBOutlet weak var MarkerImage: UIImageView!
+
+
+    //@IBOutlet weak var UserProf: UIImageView! = API.downloadImage(appDelegate._image)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +146,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         //searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
         self.view.addSubview(googleMap)
-        //self.googleMap.delegate = self;
+        self.googleMap.delegate = self;
         
     }
     
@@ -229,6 +237,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                              */
                                             AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                 message: values["errorMessage"] as! String)
+                                            return
+                                        }
+                                        if(values.isEmpty){
                                             return
                                         }
                                         
@@ -331,15 +342,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     // 周辺施設呼び出しメソッド
     func searchAroudMe(mapView:GMSMapView,lat:CLLocationDegrees,lon:CLLocationDegrees) {
         
-        var mposition = CLLocationCoordinate2DMake(lat,lon)
+        var mposition : CLLocationCoordinate2D
         var marker = GMSMarker()
-        //marker.title = "test"
-        //marker.icon = UIImage(named: "marker")
-        //marker.map = self.googleMap
-
-      
-        //NSLog("marker:\(marker)")
-        
         var page_token:String = ""
         
         repeat {
@@ -347,7 +351,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             
             //検索URLの作成
             let encodedStr = "cafes".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=2000&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
+            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=135&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
             let searchNSURL = NSURL(string: url)
             
             let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
@@ -377,10 +381,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                             if let geometry = result["geometry"] as? NSDictionary {
                                 if let location = geometry["location"] as? NSDictionary {
                                     
-                                    //ビンの座標を設定する。
-                                    mposition = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
-                                    NSLog("lat:\(mposition.latitude),lot:\(mposition.longitude)")
-                                    NSLog("result:\(result)")
+                                    //ビンの座標を設定する
+                                    dispatch_async(dispatch_get_main_queue(), {
+                                        NSLog("result:\(result)")
+                                        let mposition = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
+                                        
+                                        marker = GMSMarker(position: mposition)
+                                        marker.title = result["name"] as? String
+                                        //let tmpurl = NSURL(string: result["icon"]);
+                                        let tmpurl = result["icon"]
+                                        
+                                        //var err: NSError?
+                                        let imageData :NSData = NSData(contentsOfURL: NSURL(string: tmpurl! as! String)! )!;
+                                        
+                                        
+                                        marker.icon = UIImage(data:imageData);//UIImage//UIImage(named: "marker")
+                                        marker.map = self.googleMap
+
+                                    });
                                 }
                             }
                         }
@@ -391,90 +409,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 sleep(1)
                 dispatch_semaphore_signal(semaphore)
             }).resume()
-            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-        } while (page_token != "")
-
-        
-        /*
-        var annotationList = [MKPointAnnotation]()
-        var page_token:String = ""
-        
-        repeat {
-            //
-            let semaphore = dispatch_semaphore_create(0)
             
-            //検索URLの作成
-            let encodedStr = "cafe".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(center.latitude),\(center.longitude)&radius=2000&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
-            let searchNSURL = NSURL(string: url)
-            
-            //検索を実行する。
-            let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-            session.dataTaskWithURL(searchNSURL!, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
-                
-                if error != nil {
-                    print("エラーが発生しました。\(error)")
-                } else {
-                    if let statusCode = response as? NSHTTPURLResponse {
-                        if statusCode.statusCode != 200 {
-                            print("サーバーから期待するレスポインスが来ませんでした。\(response)")
-                        }
-                    }
-                    
-                    do {
-                        //レスポンスデータ（JSON）から辞書を作成する。
-                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                        let results = json["results"] as? Array<NSDictionary>
-                        
-                        //次のページがあるか確認する。
-                        if json["next_page_token"] != nil {
-                            page_token = json["next_page_token"] as! String
-                        } else {
-                            page_token = ""
-                        }
-                        
-                        //検索結果の件数ぶんループ
-                        for result in results! {
-                            
-                            let annotation = MKPointAnnotation()
-                            
-                            //ピンのタイトルに店名、住所を設定する。
-                            annotation.title = result["name"] as? String
-                            annotation.subtitle = result["vicinity"] as? String
-                            
-                            if let geometry = result["geometry"] as? NSDictionary {
-                                if let location = geometry["location"] as? NSDictionary {
-                                    
-                                    //ビンの座標を設定する。
-                                    annotation.coordinate = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
-                                    annotationList.append(annotation)
-                                    
-                                }
-                            }
-                        }
-                    } catch {
-                        print("エラー")
-                    }
-                }
-                //連続で要求をすると結果が返ってこないので一瞬スリープする。
-                sleep(1)
-                
-                //処理終了をセマフォに知らせる。
-                dispatch_semaphore_signal(semaphore)
-                
-            }).resume()
-            
-            //検索が終わるのを待つ。
             dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
         } while (page_token != "")
         
-        
-        //ピンをマップに追加する。
-        googleMap.addAnnotations(annotationList)
-        */
- 
     }
     
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        NSLog("marker:\(marker)")
+        NSLog("title:\(marker.title)")
+        NSLog("icon :\(marker.icon)")
+        MarkerTitle.text = marker.title
+        MarkerImage.image = marker.icon
+        
+        //self.view.addSubview(mapView)
+        return false
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

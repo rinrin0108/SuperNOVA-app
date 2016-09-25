@@ -37,7 +37,7 @@
 		C0909CFC1D96384E00E3093A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0909CFA1D96384E00E3093A /* LaunchScreen.storyboard */; };
 		C0909D071D96384E00E3093A /* SuperNOVA_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D061D96384E00E3093A /* SuperNOVA_appTests.swift */; };
 		C0909D121D96384E00E3093A /* SuperNOVA_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D111D96384E00E3093A /* SuperNOVA_appUITests.swift */; };
-		C0909D201D964DC100E3093A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D1F1D964DC100E3093A /* MapViewController.swift */; };
+		C0D411101D9731A100986D18 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909D1F1D964DC100E3093A /* MapViewController.swift */; };
 		D34587B2BE0E0EFC4CFF46DD /* Pods_SuperNOVA_appUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AEE594A125CDF39B9E88EA9 /* Pods_SuperNOVA_appUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +138,7 @@
 		51E6843F1D964B650040C2AD /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				C0909CF31D96384E00E3093A /* ViewController.swift */,
 				51E684401D964BBC0040C2AD /* API.swift */,
 				51E684421D964BF00040C2AD /* APIContentType.swift */,
 				51E684441D964C110040C2AD /* APIHttpMethod.swift */,
@@ -221,7 +222,6 @@
 				51E684481D964D460040C2AD /* ViewControllers */,
 				51E6843F1D964B650040C2AD /* APIs */,
 				C0909CF11D96384E00E3093A /* AppDelegate.swift */,
-				C0909CF31D96384E00E3093A /* ViewController.swift */,
 				C0909D1F1D964DC100E3093A /* MapViewController.swift */,
 				C0909CF51D96384E00E3093A /* Main.storyboard */,
 				C0909CF81D96384E00E3093A /* Assets.xcassets */,
@@ -552,7 +552,6 @@
 				51F90C5A1D96853800CBFB88 /* AccountInfo.swift in Sources */,
 				51F90C581D96845F00CBFB88 /* IndicatorUtil.swift in Sources */,
 				C0909CF41D96384E00E3093A /* ViewController.swift in Sources */,
-				C0909D201D964DC100E3093A /* MapViewController.swift in Sources */,
 				51E684411D964BBC0040C2AD /* API.swift in Sources */,
 				51E6844A1D964D880040C2AD /* UserRegisterViewController.swift in Sources */,
 				51F90C621D96F0CC00CBFB88 /* EvaluateViewController.swift in Sources */,
@@ -564,6 +563,7 @@
 				51E684571D9657900040C2AD /* ViewShowAnimation.swift in Sources */,
 				51F90C5C1D96B1D200CBFB88 /* MergerApi.swift in Sources */,
 				C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */,
+				C0D411101D9731A100986D18 /* MapViewController.swift in Sources */,
 				51F90C5E1D96ED1C00CBFB88 /* CallViewController.swift in Sources */,
 				51F90C561D96826A00CBFB88 /* UserApi.swift in Sources */,
 			);

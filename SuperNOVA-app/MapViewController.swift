@@ -15,6 +15,10 @@ import MapKit
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     
+    @IBOutlet weak var push_icon: UIImageView!
+    @IBOutlet weak var push_text: UILabel!
+    
+    @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(sender: UIButton) {
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: false,
@@ -242,7 +246,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         NSLog("uryyyyy")
                                         NSLog(appDelegate._idpartner)
                                         NSLog("uryyyyy")
-                                    
+                                        
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){

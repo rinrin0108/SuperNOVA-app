@@ -144,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-hK-CXA" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="140" width="375" height="420"/>
+                                <rect key="frame" x="0.0" y="138" width="375" height="422"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjD-rH-ksa">
@@ -156,7 +156,7 @@
                                             <action selector="goAppoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HL9-OT-bPb"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒーシブヤ" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Xf-1q4">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a57-Xf-1q4">
                                         <rect key="frame" x="131" y="12" width="222" height="85"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,12 +171,25 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="b2c-fk-SEk" userLabel="logo_for_paper">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
-                                <rect key="frame" x="20" y="84" width="335" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
+                                <rect key="frame" x="0.0" y="80" width="375" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="responseTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGT-YV-uOI"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="push_icon_check" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-zr-8in">
+                                <rect key="frame" x="310" y="85" width="45" height="45"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="生徒があなたを探しています" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3A-mJ-Efs">
+                                <rect key="frame" x="44" y="94" width="240" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -185,6 +198,9 @@
                         <outlet property="MarkerImage" destination="TdH-TP-93a" id="1ku-uo-Ax8"/>
                         <outlet property="MarkerTitle" destination="a57-Xf-1q4" id="U0c-3A-gNg"/>
                         <outlet property="googleMap" destination="5wX-hK-CXA" id="Mqb-tO-fbA"/>
+                        <outlet property="push_icon" destination="f2t-zr-8in" id="FQD-LU-6rx"/>
+                        <outlet property="push_text" destination="h3A-mJ-Efs" id="kln-SJ-Lx2"/>
+                        <outlet property="responseTeacher" destination="uaT-H0-PjE" id="G42-91-Nue"/>
                         <segue destination="RaJ-I0-fIJ" kind="show" identifier="toCallView" id="hZu-oM-aHt"/>
                         <segue destination="n2Y-Nr-LwU" kind="show" identifier="toTeacherWaitingView" id="bm8-xs-QUD"/>
                     </connections>
@@ -205,6 +221,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_cofee" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-u0-LcU">
+                                <rect key="frame" x="0.0" y="80" width="375" height="400"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isX-O7-C8B">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <state key="normal" title="CheckIn" backgroundImage="orange_btn">
@@ -214,7 +233,7 @@
                                     <action selector="checkin:" destination="n2Y-Nr-LwU" eventType="touchUpInside" id="iNd-YK-Jng"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-vt-Vac" userLabel="partnerview">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_shop_small" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-vt-Vac" userLabel="partnerview">
                                 <rect key="frame" x="40" y="485" width="85" height="85"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="ICc-TG-7g9">
@@ -223,12 +242,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-P6-Xk9">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒーシブヤ" translatesAutoresizingMaskIntoConstraints="NO" id="xda-zk-qec">
-                                <rect key="frame" x="135" y="485" width="205" height="85"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-eh-6S4">
+                                <rect key="frame" x="138" y="485" width="202" height="85"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="この画面だけモックです" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjV-qM-ir3">
+                                <rect key="frame" x="261" y="19" width="102" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -254,10 +279,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdZ-Nb-FFk">
-                                <rect key="frame" x="0.0" y="78" width="375" height="445"/>
+                                <rect key="frame" x="0.0" y="80" width="375" height="400"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_cofee" translatesAutoresizingMaskIntoConstraints="NO" id="hfx-cd-fOI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="401"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-dD-Jdc" userLabel="shop_image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_shop_small" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-dD-Jdc" userLabel="shop_image">
                                 <rect key="frame" x="40" y="486" width="85" height="85"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-WC-mP5">
@@ -275,12 +305,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_white" translatesAutoresizingMaskIntoConstraints="NO" id="u4O-tW-BUu">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスシブヤ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kqY-Gy-Y2b" userLabel="shop_name">
-                                <rect key="frame" x="133" y="486" width="207" height="85"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-Mk-2Wl">
+                                <rect key="frame" x="145" y="486" width="193" height="85"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="この画面だけモックです" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoz-Xs-gi9">
+                                <rect key="frame" x="253" y="14" width="102" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -465,12 +501,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_class" translatesAutoresizingMaskIntoConstraints="NO" id="cub-9X-fN1">
+                                <rect key="frame" x="0.0" y="79" width="375" height="588"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_shop_big" translatesAutoresizingMaskIntoConstraints="NO" id="NHt-uc-J9a">
                                 <rect key="frame" x="45" y="100" width="85" height="85"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="boy-0Q-2HQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-cb-han">
+                                <rect key="frame" x="155" y="110" width="200" height="75"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3E-Nv-Dwl">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -502,12 +547,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="ANS-X2-Lzd">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="スターバックスコーヒー渋谷" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k1H-FK-RvN">
-                                <rect key="frame" x="145" y="100" width="210" height="85"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -603,16 +642,18 @@
         <image name="logo_header_black" width="171" height="59"/>
         <image name="logo_header_white" width="171" height="59"/>
         <image name="logo_splash" width="361" height="105"/>
+        <image name="map_cofee" width="750" height="1334"/>
         <image name="orange_btn" width="600" height="100"/>
         <image name="photo_shop_big" width="120" height="120"/>
         <image name="photo_shop_small" width="64" height="64"/>
         <image name="photo_student" width="248" height="248"/>
         <image name="photo_teacher" width="248" height="248"/>
+        <image name="push_icon_check" width="60" height="60"/>
         <image name="rating_star_off" width="285" height="44"/>
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PBm-En-xVe"/>
+        <segue reference="pdV-4q-DF1"/>
         <segue reference="IwH-KW-BsE"/>
     </inferredMetricsTieBreakers>
 </document>

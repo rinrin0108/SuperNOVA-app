@@ -17,14 +17,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBAction func responseTeacher(sender: UIButton) {
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        appDelegate._place = "SHOP01";
-        //FIXME
-        appDelegate._lat = "35.698353";
-        appDelegate._lng = "139.773114";
-        
-        //FIXME
-        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
-                                 success:{
+        MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: false,
+                                   success:{
                                     values in let closure = {
                                         NSLog("ConversationViewController success");
                                         // 通信は成功したが、エラーが返ってきた場合
@@ -40,11 +34,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             return
                                         }
                                         
-                                        NSLog("yeeeeeeees");
                                         NSLog(values.debugDescription);
-                                        NSLog("yeeeeeeees");
                                         ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toTeacherWaitingView")
-                                        
                                         
                                     }
                                     // 通知の監視
@@ -60,7 +51,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     
             },
-                                failed: {
+                                   failed: {
                                     id, message in let closure = {
                                         NSLog("ConversationViewController failed");
                                         /**
@@ -90,6 +81,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
             }
         )
+        
 
         
     }

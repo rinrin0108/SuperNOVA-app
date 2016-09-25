@@ -172,7 +172,7 @@
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaT-H0-PjE" userLabel="responseTeacher">
-                                <rect key="frame" x="20" y="57" width="335" height="48"/>
+                                <rect key="frame" x="20" y="84" width="335" height="48"/>
                                 <connections>
                                     <action selector="responseTeacher:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tGT-YV-uOI"/>
                                 </connections>

@@ -11,14 +11,48 @@ import UIKit
 
 class EvaluateViewController: UIViewController {
     
+    @IBOutlet weak var rate_image: UIImageView!
+    var rating: String = "0"
+    
+    @IBAction func rate1(sender: UIButton) {
+        rate_image.image = UIImage(named: "rating_star_1")
+        rating = "1";
+    }
+    
+    
+    @IBAction func rate2(sender: UIButton) {
+        rate_image.image = UIImage(named: "rating_star_2")
+        rating = "2";
+
+    }
+    
+    
+    @IBAction func rate3(sender: UIButton) {
+        rate_image.image = UIImage(named: "rating_star_3")
+        rating = "3";
+
+    }
+    
+    
+    @IBAction func rate4(sender: UIButton) {
+        rate_image.image = UIImage(named: "rating_star_4")
+        rating = "4";
+
+    }
+    
+    @IBAction func rate5(sender: UIButton) {
+        rate_image.image = UIImage(named: "rating_star_5")
+        rating = "5";
+
+    }
+    
+    
     @IBAction func rate(sender: UIButton) {
         
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
-        var rate : String! = "3"
-        
         //ピッチング終了リクエスト
-        UserAPI.updateUserRate(appDelegate._partner,rate: rate ,sync: false,
+        UserAPI.updateUserRate(appDelegate._partner,rate: rating ,sync: false,
                                  success:{
                                     values in let closure = {
                                         NSLog("EvaluateViewController success");

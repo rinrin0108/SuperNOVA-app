@@ -382,18 +382,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDh-53-mYu">
-                                <rect key="frame" x="32" y="398" width="55" height="54"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEY-vV-UGm">
-                                <rect key="frame" x="95" y="398" width="54" height="54"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sd2-xH-imj">
-                                <rect key="frame" x="159" y="398" width="55" height="54"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKS-cK-YbM">
-                                <rect key="frame" x="222" y="398" width="56" height="54"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="My0-yc-cg3">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -410,14 +398,42 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="kRe-2K-fXE">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V9n-FQ-IDf">
-                                <rect key="frame" x="286" y="398" width="54" height="54"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3F-mK-bcP" userLabel="rate1">
+                                <rect key="frame" x="32" y="400" width="46" height="46"/>
+                                <connections>
+                                    <action selector="rate1:" destination="TEA-QB-het" eventType="touchUpInside" id="k0R-eT-Lo3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTm-Pg-1Nz" userLabel="rate2">
+                                <rect key="frame" x="99" y="400" width="46" height="46"/>
+                                <connections>
+                                    <action selector="rate2:" destination="TEA-QB-het" eventType="touchUpInside" id="ktf-rR-KOr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5h-1A-czf" userLabel="rate3">
+                                <rect key="frame" x="163" y="400" width="46" height="46"/>
+                                <connections>
+                                    <action selector="rate3:" destination="TEA-QB-het" eventType="touchUpInside" id="D7k-4u-Kn6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C08-b3-5GK" userLabel="rate4">
+                                <rect key="frame" x="228" y="400" width="46" height="46"/>
+                                <connections>
+                                    <action selector="rate4:" destination="TEA-QB-het" eventType="touchUpInside" id="AJx-vI-TOW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaJ-2n-uBw" userLabel="rate5">
+                                <rect key="frame" x="294" y="400" width="46" height="46"/>
+                                <connections>
+                                    <action selector="rate5:" destination="TEA-QB-het" eventType="touchUpInside" id="X4D-Wg-oqu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="rate_image" destination="TsZ-eJ-Wa3" id="pox-d3-iRP"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="CBP-oz-Lc4"/>
                     </connections>
                 </viewController>
@@ -584,7 +600,7 @@
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PBm-En-xVe"/>
-        <segue reference="IwH-KW-BsE"/>
+        <segue reference="pdV-4q-DF1"/>
+        <segue reference="CBP-oz-Lc4"/>
     </inferredMetricsTieBreakers>
 </document>

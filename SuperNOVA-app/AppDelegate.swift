@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _fullname :String!
     var _place     :String!
     var _id       :String!
+    var _idpartner       :String!
     var _lang     :String!
     var _native     :String!
     var _lat      :String!

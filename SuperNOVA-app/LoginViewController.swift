@@ -17,6 +17,13 @@ class LoginViewController: UIViewController {
     override
     func viewDidLoad() {
         super.viewDidLoad()
+        //キャッシュを消す
+        NSURLCache.sharedURLCache().removeAllCachedResponses()
+        NSURLCache.sharedURLCache().diskCapacity = 0
+        NSURLCache.sharedURLCache().memoryCapacity = 0
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+
+        appDelegate._id = "";
     }
     
     /**

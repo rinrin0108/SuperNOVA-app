@@ -80,6 +80,8 @@ class EvaluateViewController: UIViewController {
                                         }
                                         
                                         NSLog(values.debugDescription);
+                                        ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
+
                                         
                                     }
                                     // 通知の監視

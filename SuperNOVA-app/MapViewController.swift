@@ -347,7 +347,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             
             //検索URLの作成
             let encodedStr = "cafes".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=135&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
+            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=50&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
             let searchNSURL = NSURL(string: url)
             
             let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())

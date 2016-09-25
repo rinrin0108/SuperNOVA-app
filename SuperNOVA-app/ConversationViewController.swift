@@ -11,9 +11,9 @@ import UIKit
 
 class ConversationViewController: UIViewController {
     
-    @IBOutlet weak var photo_teacher: UIImageView!
-    @IBOutlet weak var photo_student: UIImageView!
     
+    @IBOutlet weak var photo_student: UIImageView!
+    @IBOutlet weak var photo_teacher: UIImageView!
     @IBOutlet weak var name_teacher: UILabel!
     @IBOutlet weak var name_student: UILabel!
     

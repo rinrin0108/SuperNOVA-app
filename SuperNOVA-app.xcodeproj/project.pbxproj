@@ -22,6 +22,12 @@
 		51F90C581D96845F00CBFB88 /* IndicatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C571D96845F00CBFB88 /* IndicatorUtil.swift */; };
 		51F90C5A1D96853800CBFB88 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C591D96853800CBFB88 /* AccountInfo.swift */; };
 		51F90C5C1D96B1D200CBFB88 /* MergerApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C5B1D96B1D200CBFB88 /* MergerApi.swift */; };
+		51F90C5E1D96ED1C00CBFB88 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C5D1D96ED1C00CBFB88 /* CallViewController.swift */; };
+		51F90C601D96EECC00CBFB88 /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C5F1D96EECC00CBFB88 /* ConversationViewController.swift */; };
+		51F90C621D96F0CC00CBFB88 /* EvaluateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C611D96F0CC00CBFB88 /* EvaluateViewController.swift */; };
+		51F90C641D97134E00CBFB88 /* EncounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C631D97134E00CBFB88 /* EncounterViewController.swift */; };
+		51F90C661D971F7100CBFB88 /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C651D971F7100CBFB88 /* WaitingViewController.swift */; };
+		51F90C681D971FF400CBFB88 /* WaitingMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F90C671D971FF400CBFB88 /* WaitingMapController.swift */; };
 		82B24E17E57ADDB44E41E9D8 /* Pods_SuperNOVA_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010B41CDE26002C5956D611A /* Pods_SuperNOVA_app.framework */; };
 		C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909CF11D96384E00E3093A /* AppDelegate.swift */; };
 		C0909CF41D96384E00E3093A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909CF31D96384E00E3093A /* ViewController.swift */; };
@@ -69,6 +75,12 @@
 		51F90C571D96845F00CBFB88 /* IndicatorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorUtil.swift; sourceTree = "<group>"; };
 		51F90C591D96853800CBFB88 /* AccountInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		51F90C5B1D96B1D200CBFB88 /* MergerApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergerApi.swift; sourceTree = "<group>"; };
+		51F90C5D1D96ED1C00CBFB88 /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		51F90C5F1D96EECC00CBFB88 /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		51F90C611D96F0CC00CBFB88 /* EvaluateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluateViewController.swift; sourceTree = "<group>"; };
+		51F90C631D97134E00CBFB88 /* EncounterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterViewController.swift; sourceTree = "<group>"; };
+		51F90C651D971F7100CBFB88 /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+		51F90C671D971FF400CBFB88 /* WaitingMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingMapController.swift; sourceTree = "<group>"; };
 		91BD3AB9252D092CA32800FC /* Pods-SuperNOVA-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-appUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-appUITests/Pods-SuperNOVA-appUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9E9385A34463BBE40E04C120 /* Pods-SuperNOVA-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperNOVA-appTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperNOVA-appTests/Pods-SuperNOVA-appTests.release.xcconfig"; sourceTree = "<group>"; };
 		C0909CEE1D96384E00E3093A /* SuperNOVA-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperNOVA-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +136,7 @@
 		51E6843F1D964B650040C2AD /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				C0909CF31D96384E00E3093A /* ViewController.swift */,
 				51E684401D964BBC0040C2AD /* API.swift */,
 				51E684421D964BF00040C2AD /* APIContentType.swift */,
 				51E684441D964C110040C2AD /* APIHttpMethod.swift */,
@@ -139,6 +152,11 @@
 			children = (
 				51E684491D964D880040C2AD /* UserRegisterViewController.swift */,
 				51E684501D9654300040C2AD /* LoginViewController.swift */,
+				51F90C5D1D96ED1C00CBFB88 /* CallViewController.swift */,
+				51F90C5F1D96EECC00CBFB88 /* ConversationViewController.swift */,
+				51F90C611D96F0CC00CBFB88 /* EvaluateViewController.swift */,
+				51F90C631D97134E00CBFB88 /* EncounterViewController.swift */,
+				51F90C671D971FF400CBFB88 /* WaitingMapController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -201,12 +219,12 @@
 				51E684481D964D460040C2AD /* ViewControllers */,
 				51E6843F1D964B650040C2AD /* APIs */,
 				C0909CF11D96384E00E3093A /* AppDelegate.swift */,
-				C0909CF31D96384E00E3093A /* ViewController.swift */,
 				C0909D1F1D964DC100E3093A /* MapViewController.swift */,
 				C0909CF51D96384E00E3093A /* Main.storyboard */,
 				C0909CF81D96384E00E3093A /* Assets.xcassets */,
 				C0909CFA1D96384E00E3093A /* LaunchScreen.storyboard */,
 				C0909CFD1D96384E00E3093A /* Info.plist */,
+				51F90C651D971F7100CBFB88 /* WaitingViewController.swift */,
 			);
 			path = "SuperNOVA-app";
 			sourceTree = "<group>";
@@ -523,20 +541,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51F90C661D971F7100CBFB88 /* WaitingViewController.swift in Sources */,
 				51E684471D964D1F0040C2AD /* UploadFile.swift in Sources */,
+				51F90C641D97134E00CBFB88 /* EncounterViewController.swift in Sources */,
+				51F90C681D971FF400CBFB88 /* WaitingMapController.swift in Sources */,
 				51F90C5A1D96853800CBFB88 /* AccountInfo.swift in Sources */,
 				51F90C581D96845F00CBFB88 /* IndicatorUtil.swift in Sources */,
 				C0909CF41D96384E00E3093A /* ViewController.swift in Sources */,
 				51E684411D964BBC0040C2AD /* API.swift in Sources */,
 				51E6844A1D964D880040C2AD /* UserRegisterViewController.swift in Sources */,
+				51F90C621D96F0CC00CBFB88 /* EvaluateViewController.swift in Sources */,
 				51E684511D9654300040C2AD /* LoginViewController.swift in Sources */,
 				51E684431D964BF00040C2AD /* APIContentType.swift in Sources */,
 				51E684451D964C110040C2AD /* APIHttpMethod.swift in Sources */,
+				51F90C601D96EECC00CBFB88 /* ConversationViewController.swift in Sources */,
 				51E684541D96556F0040C2AD /* AlertUtil.swift in Sources */,
 				51E684571D9657900040C2AD /* ViewShowAnimation.swift in Sources */,
 				51F90C5C1D96B1D200CBFB88 /* MergerApi.swift in Sources */,
 				C0909CF21D96384E00E3093A /* AppDelegate.swift in Sources */,
 				C0D411101D9731A100986D18 /* MapViewController.swift in Sources */,
+				51F90C5E1D96ED1C00CBFB88 /* CallViewController.swift in Sources */,
 				51F90C561D96826A00CBFB88 /* UserApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

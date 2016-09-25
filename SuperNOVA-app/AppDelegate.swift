@@ -16,7 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let googleMapsApiKey = "AIzaSyC3J5uA2FEqxAGTWAFsZ8J-RJ5eqmUnnRQ"
     //let API_ROOT = ""
-    
+    var _userid   :String!
+    var _image    :String!
+    var _fullname :String!
+    var _place     :String!
+    var _id       :String!
+    var _lang     :String!
+    var _native     :String!
+    var _lat      :String!
+    var _lng      :String!
+    var _time      :String!
+    var _teacher  :String!
+    var _teacherName :String!
+    var _teacherimage :String!
     
     // 
     //var initializedLocation: Bool = false;
@@ -34,8 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //
         GMSServices.provideAPIKey(googleMapsApiKey)
-        
-        return true
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

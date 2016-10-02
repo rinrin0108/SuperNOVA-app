@@ -105,9 +105,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     //
     var currentDisplayedPosition: GMSCameraPosition?
     //
-    var latitude:   CLLocationDegrees! =  35.698353
-    var longitude:  CLLocationDegrees! = 139.773114
-    var center = CLLocationCoordinate2DMake(35.698353,139.773114)
+    //var latitude:   CLLocationDegrees! =  35.698353
+    //var longitude:  CLLocationDegrees! = 139.773114
+    //var center = CLLocationCoordinate2DMake(35.698353,139.773114)
+    var latitude:   CLLocationDegrees!
+    var longitude:  CLLocationDegrees!
+    var center: CLLocationCoordinate2D!
     
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var MarkerTitle: UILabel!
@@ -130,6 +133,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         // 初期設定
         initLocationManager();
 
+        latitude = 35.698353;
+        longitude = 139.773114;
+        
         // GoogleMapから周辺の地図を取得
         let camera: GMSCameraPosition = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: appDelegate.zoom)
         googleMap.camera = camera;
@@ -322,7 +328,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
         // 中心座標の更新
         let camera: GMSCameraPosition = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: appDelegate.zoom)
-        center = CLLocationCoordinate2DMake(latitude,longitude);
+        let center = CLLocationCoordinate2DMake(latitude,longitude);
         self.googleMap.animateToCameraPosition(camera)
 
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);

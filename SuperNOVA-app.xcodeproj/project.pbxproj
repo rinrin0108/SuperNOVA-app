@@ -160,6 +160,7 @@
 				51F90C631D97134E00CBFB88 /* EncounterViewController.swift */,
 				51F90C671D971FF400CBFB88 /* WaitingMapController.swift */,
 				51F90C691D97360400CBFB88 /* TeacherWaitingViewController.swift */,
+				C0909D1F1D964DC100E3093A /* MapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -222,7 +223,6 @@
 				51E684481D964D460040C2AD /* ViewControllers */,
 				51E6843F1D964B650040C2AD /* APIs */,
 				C0909CF11D96384E00E3093A /* AppDelegate.swift */,
-				C0909D1F1D964DC100E3093A /* MapViewController.swift */,
 				C0909CF51D96384E00E3093A /* Main.storyboard */,
 				C0909CF81D96384E00E3093A /* Assets.xcassets */,
 				C0909CFA1D96384E00E3093A /* LaunchScreen.storyboard */,

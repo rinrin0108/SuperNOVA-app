@@ -221,9 +221,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map_cofee" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-u0-LcU">
-                                <rect key="frame" x="0.0" y="80" width="375" height="400"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isX-O7-C8B">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
                                 <state key="normal" title="CheckIn" backgroundImage="orange_btn">
@@ -233,6 +230,10 @@
                                     <action selector="checkin:" destination="n2Y-Nr-LwU" eventType="touchUpInside" id="iNd-YK-Jng"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6S-JI-ax6" userLabel="GoogleMap" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="80" width="375" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_shop_small" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-vt-Vac" userLabel="partnerview">
                                 <rect key="frame" x="40" y="485" width="85" height="85"/>
                             </imageView>
@@ -259,6 +260,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="googleMap" destination="j6S-JI-ax6" id="0Yp-8i-OTl"/>
                         <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="PBm-En-xVe"/>
                     </connections>
                 </viewController>
@@ -653,7 +655,7 @@
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="d4W-dF-geV"/>
         <segue reference="PBm-En-xVe"/>
-        <segue reference="CBP-oz-Lc4"/>
     </inferredMetricsTieBreakers>
 </document>

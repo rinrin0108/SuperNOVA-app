@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _partner  :String!
     var _partnerName :String!
     var _partnerimage :String!
+    var _shoplat:   CLLocationDegrees!
+    var _shoplng:  CLLocationDegrees!
     
     // 
     //var initializedLocation: Bool = false;

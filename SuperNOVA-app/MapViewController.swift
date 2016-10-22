@@ -111,6 +111,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var latitude:   CLLocationDegrees!
     var longitude:  CLLocationDegrees!
     var center: CLLocationCoordinate2D!
+    var radius = 150;
     
     @IBOutlet weak var googleMap: GMSMapView!
     @IBOutlet weak var MarkerTitle: UILabel!
@@ -132,9 +133,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
         // 初期設定
         initLocationManager();
-
-        latitude = 35.698353;
-        longitude = 139.773114;
+        latitude  = CLLocationDegrees();
+        longitude = CLLocationDegrees();
         
         // GoogleMapから周辺の地図を取得
         let camera: GMSCameraPosition = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: appDelegate.zoom)
@@ -353,7 +353,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             
             //検索URLの作成
             let encodedStr = "cafes".stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=50&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
+            let url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(lat),\(lon)&radius=\(radius)&sensor=true&key=\(appDelegate.googleMapsApiKey)&name=\(encodedStr!)&pagetoken=\(page_token)"
             let searchNSURL = NSURL(string: url)
             
             let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
@@ -423,6 +423,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         NSLog("icon :\(marker.icon)")
         MarkerTitle.text = marker.title
         MarkerImage.image = marker.icon
+        appDelegate._shoplat = marker.position.latitude
+        appDelegate._shoplng = marker.position.longitude
         
         //self.view.addSubview(mapView)
         return false

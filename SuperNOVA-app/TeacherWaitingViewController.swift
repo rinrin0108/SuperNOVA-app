@@ -93,7 +93,7 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         self.googleMap.animateToCameraPosition(camera)
 
     
-        let mcenter = CLLocationCoordinate2DMake(latitude-0.001,longitude);
+        let mcenter = CLLocationCoordinate2DMake(appDelegate._shoplat,appDelegate._shoplng);
         marker = GMSMarker(position: mcenter)
         marker.icon = UIImage(named: "marker");
         marker.map = self.googleMap

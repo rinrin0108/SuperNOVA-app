@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _partnerimage :String!
     var _shoplat:   CLLocationDegrees!
     var _shoplng:  CLLocationDegrees!
+    var _status: CLAuthorizationStatus!
+    var _application:UIApplication!
     
     // 
     //var initializedLocation: Bool = false;
@@ -43,11 +45,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //
     let distance_filter: CLLocationDistance = 50;
     
+    //BackGroundGeoLocation
+    var backgroundTaskID : UIBackgroundTaskIdentifier = 0
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         //
         GMSServices.provideAPIKey(googleMapsApiKey)
+        
+        //ローカルプッシュ許可
+        if #available(iOS 8.0, *) {
+            // iOS8以上
+            //forTypesは.Alertと.Soundと.Badgeがある
+            let notiSettings = UIUserNotificationSettings(forTypes:[.Alert,.Sound,.Badge], categories:nil)
+            application.registerUserNotificationSettings(notiSettings)
+            application.registerForRemoteNotifications()
+        } else{
+            // iOS7以前
+            application.registerForRemoteNotificationTypes( [.Alert,.Sound,.Badge] )
+        }
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -59,9 +76,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 
+    //バックグラウンド遷移移行直前に呼ばれる
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        
+        NSLog("lat:バックグラウンド");
+        _application = application;
+        
+        //BackGroundGeoLocation
+        self.backgroundTaskID = application.beginBackgroundTaskWithExpirationHandler(){
+            [weak self] in
+            application.endBackgroundTask((self?.backgroundTaskID)!)
+            self?.backgroundTaskID = UIBackgroundTaskInvalid
+        }
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -73,10 +101,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
+    //アプリがアクティブになる度に呼ばれる
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         //Facebook
         FBSDKAppEvents.activateApp()
+        
+        //BackGroundGeoLocation
+        application.endBackgroundTask(self.backgroundTaskID)
     }
 
     func applicationWillTerminate(application: UIApplication) {

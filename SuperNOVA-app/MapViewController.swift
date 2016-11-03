@@ -14,6 +14,7 @@ import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
+    var pushLocationManager: CLLocationManager!
     
     @IBOutlet weak var push_icon: UIImageView!
     @IBOutlet weak var push_text: UILabel!
@@ -124,6 +125,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //バックグラウンド位置情報取得の事前設定
+        setupBackGroundGeoLocation()
+        //初回位置情報取得
+        pushLocationManager.startUpdatingLocation()
+        
+        //更新された位置情報を元にした検索
         NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(MapViewController.searchRequest), userInfo: nil, repeats: true)
         
         // 位置情報サービスを開始するかの確認（初回のみ）
@@ -152,14 +159,66 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
     }
     
+    //バックグラウンド位置情報取得の事前設定
+    func setupBackGroundGeoLocation(){
+        NSLog("setupBackGroundGeoLocation")
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        
+        //位置情報認証
+        let status = CLLocationManager.authorizationStatus()
+        if status == CLAuthorizationStatus.Restricted || status == CLAuthorizationStatus.Denied {
+            return
+        }
+        
+        pushLocationManager = CLLocationManager()
+        pushLocationManager.delegate = self
+        
+        if status == CLAuthorizationStatus.NotDetermined {
+            pushLocationManager.requestAlwaysAuthorization()
+        }
+        
+        if !CLLocationManager.locationServicesEnabled() {
+            return
+        }
+        
+        //位置情報取得開始
+        pushLocationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        pushLocationManager.distanceFilter = 1
+    }
+    
+    //位置情報取得時処理
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        NSLog("BackGroundGeo locationManager")
+        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let lastLocation = locations.last
+        if let last = lastLocation {
+            let eventDate = last.timestamp
+            if abs(eventDate.timeIntervalSinceNow) < 15.0 {
+                if let location = manager.location {
+                    appDelegate._lat = location.coordinate.latitude.description
+                    appDelegate._lng = location.coordinate.longitude.description
+                    
+                    //ここでWEB API叩く
+                    
+                    //叩いた結果、fooならローカルPUSHする
+                }
+            }
+        }
+    }
+    
+    
     func searchRequest() {
         NSLog("searchRequest timer")
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         appDelegate._place = "SHOP01";
-        //FIXME
-        appDelegate._lat = "35.698353";
-        appDelegate._lng = "139.773114";
+        
+        if (appDelegate._lat == nil || appDelegate._lng == nil){
+            appDelegate._lat = "35.698353";
+            appDelegate._lng = "139.773114";
+        }
+        
+        print("lat:" + appDelegate._lat + " lng:" + appDelegate._lng);
         
         UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
                                    success:{
@@ -245,13 +304,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                             return
                                         }
                                         
+                                        if(values["status"] as! String == "req"){
+                                            //ローカル通知
+                                            let notification = UILocalNotification()
+                                            //ロック中にスライドで〜〜のところの文字
+                                            notification.alertAction = "アプリを開く"
+                                            //通知の本文
+                                            notification.alertBody = "リクエストを受信中です！"
+                                            //通知される時間（とりあえず5秒後に設定）
+                                            notification.fireDate = NSDate(timeIntervalSinceNow:1)
+                                            //通知音
+                                            notification.soundName = UILocalNotificationDefaultSoundName
+                                            //アインコンバッジの数字
+                                            //notification.applicationIconBadgeNumber = 1
+                                            //通知を識別するID
+                                            notification.userInfo = ["notifyID":"SuperNova"]
+                                            //通知をスケジューリング
+                                            appDelegate._application.scheduleLocalNotification(notification)
+                                        }
+                                        
+                                        
                                         NSLog(values.debugDescription);
                                         appDelegate._partner = values["student"] as! String;
                                         appDelegate._idpartner = values["_id"] as! String;
-                                        
-                                        NSLog("uryyyyy")
-                                        NSLog(appDelegate._idpartner)
-                                        NSLog("uryyyyy")
                                         
                                     }
                                     // 通知の監視
@@ -320,6 +395,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
         NSLog("Error getting Location")
     }
+    
     // 座標を取得した際の処理
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation){
         // 緯度・経度の取得

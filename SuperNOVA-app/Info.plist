@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>ja_JP</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -18,12 +18,32 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1595880534048908</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>1595880534048908</string>
+	<key>FacebookDisplayName</key>
+	<string>SuperNova</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Use Location Service</string>
+	<string>位置情報を常に使用します。</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -34,6 +54,8 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>location-services</string>
+		<string>gps</string>
 		<string>armv7</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
@@ -42,27 +64,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>CFBundleURLTypes</key>
-	<array>
-  		<dict>
-  		<key>CFBundleURLSchemes</key>
-  		<array>
-    			<string>fb1595880534048908</string>
-  		</array>
-  		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>1595880534048908</string>
-	<key>FacebookDisplayName</key>
-	<string>SuperNova</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-	  <string>fbapi</string>
-	  <string>fb-messenger-api</string>
-	  <string>fbauth2</string>
-	  <string>fbshareextension</string>
-	</array>
-
-
 </dict>
 </plist>

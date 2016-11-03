@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
                                             if ((error) != nil)
                                             {
                                                 print("---LoginViewController error");
+                                                NSLog(error.description);
                                                 // 失敗した場合エラー情報を表示
                                                 AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                     message: NSLocalizedString("ALERT_LOGIN_FAILED_ERROR", comment: ""));

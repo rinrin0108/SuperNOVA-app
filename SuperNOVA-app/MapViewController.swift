@@ -332,8 +332,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         self.googleMap.animateToCameraPosition(camera)
 
         searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
-        // Debug
-        //NSLog("latitude: \(latitude), longitude: \(longitude)");
+        
     }
     /*
     internal func onClickLocationButton(sender: UIButton){

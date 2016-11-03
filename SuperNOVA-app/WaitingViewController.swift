@@ -15,14 +15,14 @@ import MapKit
 class WaitingViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     @IBAction func goAppoint(sender: UIButton) {
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._place = "SHOP01";
         //FIXME
         appDelegate._lat = "35.698353";
         appDelegate._lng = "139.773114";
         
         //FIXME
-        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
+        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: true,
                                    success:{
                                     values in let closure = {
                                         NSLog("MapViewController success");

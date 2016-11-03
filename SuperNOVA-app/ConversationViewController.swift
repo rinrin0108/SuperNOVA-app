@@ -33,7 +33,7 @@ class ConversationViewController: UIViewController {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         //ピッチング終了リクエスト
-        MergerAPI.finishPitching(appDelegate._id ,sync: false,
+        MergerAPI.finishPitching(appDelegate._id ,sync: true,
                                        success:{
                                         values in let closure = {
                                             NSLog("---ConversationViewController MergerAPI.finishPitching success");

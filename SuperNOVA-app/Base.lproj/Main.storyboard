@@ -243,7 +243,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_black" translatesAutoresizingMaskIntoConstraints="NO" id="kgL-P6-Xk9">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-eh-6S4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7a-eh-6S4">
                                 <rect key="frame" x="138" y="485" width="202" height="85"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -255,6 +255,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="googleMap" destination="j6S-JI-ax6" id="0Yp-8i-OTl"/>
+                        <outlet property="shopName" destination="h7a-eh-6S4" id="d7s-fy-s7r"/>
                         <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="PBm-En-xVe"/>
                     </connections>
                 </viewController>
@@ -292,7 +293,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_header_white" translatesAutoresizingMaskIntoConstraints="NO" id="u4O-tW-BUu">
                                 <rect key="frame" x="145" y="30" width="85" height="29"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-Mk-2Wl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-Mk-2Wl">
                                 <rect key="frame" x="145" y="486" width="193" height="85"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -308,6 +309,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="googleMap" destination="x9Q-1M-1rY" id="MF0-JA-dxA"/>
+                        <outlet property="shopName" destination="t8X-Mk-2Wl" id="tdq-UT-y2x"/>
                         <segue destination="fK8-Bo-zSv" kind="show" identifier="toEncounterView" id="pdV-4q-DF1"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" id="IwH-KW-BsE"/>
                     </connections>
@@ -496,7 +498,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_header" translatesAutoresizingMaskIntoConstraints="NO" id="boy-0Q-2HQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="スターバックスコーヒー渋谷" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-cb-han">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-cb-han">
                                 <rect key="frame" x="155" y="110" width="200" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -538,6 +540,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="shopName" destination="rOW-cb-han" id="wvh-Z3-BrS"/>
                         <segue destination="3RO-Vd-9TR" kind="show" identifier="toWaitingMapView" id="Ec6-Os-8th"/>
                     </connections>
                 </viewController>
@@ -638,7 +641,7 @@
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pdV-4q-DF1"/>
         <segue reference="IwH-KW-BsE"/>
+        <segue reference="pdV-4q-DF1"/>
     </inferredMetricsTieBreakers>
 </document>

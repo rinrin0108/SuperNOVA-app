@@ -20,7 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(sender: UIButton) {
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: false,
+        MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: true,
                                    success:{
                                     values in let closure = {
                                         NSLog("---MapViewController MergerAPI.responseTeacher success");
@@ -162,7 +162,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         NSLog("---MapViewController searchRequest lat:" + appDelegate._lat + " lng:" + appDelegate._lng);
         
-        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
+        UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: true,
                                    success:{
                                     values in let closure = {
                                         NSLog("---MapViewController UserAPI.updateUserLocation success");
@@ -228,7 +228,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
 
         //近辺の
-        MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native ,sync: false,
+        MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native ,sync: true,
                                    success:{
                                     values in let closure = {
                                         NSLog("---MapViewController MergerAPI.searchRequest success");
@@ -246,8 +246,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                         if(values.isEmpty){
                                             return
                                         }
-                                        
                                         if(values["status"] as! String == "req"){
+                                            
+                                            //初回
+                                            if(appDelegate._pushId != nil){
+                                                if(appDelegate._pushId == values["_id"] as! String){
+                                                    return
+                                                }
+                                            }
+                                            
+                                            appDelegate._pushId = values["_id"] as! String
+                                            
                                             //ローカル通知
                                             let notification = UILocalNotification()
                                             //ロック中にスライドで〜〜のところの文字

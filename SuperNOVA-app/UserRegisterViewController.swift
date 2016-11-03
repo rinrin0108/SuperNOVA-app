@@ -69,7 +69,7 @@ class UserRegisterViewController: UIViewController {
         }
         
         // ユーザ登録API呼び出し
-        UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text , lang: appDelegate._lang , native: appDelegate._native, profileImageURL: profileImageURL ,sync: false,
+        UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text , lang: appDelegate._lang , native: appDelegate._native, profileImageURL: profileImageURL ,sync: true,
                         success:{
                         values in let closure = {
                             NSLog("---UserRegisterViewController UserAPI.registUser success");

@@ -25,7 +25,7 @@ class EncounterViewController: UIViewController {
         self.photo_student.image =  API.downloadImage(appDelegate._image)
         
         //教師
-        UserAPI.getUser(appDelegate._partner,sync: false,
+        UserAPI.getUser(appDelegate._partner,sync: true,
                                   success:{
                                     values in let closure = {
                                         NSLog("---EncounterViewController UserAPI.getUser success");
@@ -107,7 +107,7 @@ class EncounterViewController: UIViewController {
         NSLog(dateFormatter.stringFromDate(now))
         
         let starttime :String! = dateFormatter.stringFromDate(now)
-        MergerAPI.updatePitchStarttime(appDelegate._id , starttime: starttime ,sync: false,
+        MergerAPI.updatePitchStarttime(appDelegate._id , starttime: starttime ,sync: true,
                                        success:{
                                         values in let closure = {
                                             NSLog("---EncounterViewController MergerAPI.updatePitchStarttime success");

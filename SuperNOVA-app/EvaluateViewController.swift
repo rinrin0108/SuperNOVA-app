@@ -63,7 +63,7 @@ class EvaluateViewController: UIViewController {
         var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         //ピッチング終了リクエスト
-        UserAPI.updateUserRate(appDelegate._partner,rate: rating ,sync: false,
+        UserAPI.updateUserRate(appDelegate._partner,rate: rating ,sync: true,
                                  success:{
                                     values in let closure = {
                                         NSLog("---EvaluateViewController UserAPI.updateUserRate success");

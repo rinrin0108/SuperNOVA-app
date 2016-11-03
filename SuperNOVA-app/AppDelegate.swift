@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _shopsnippet :String!
     var _status: CLAuthorizationStatus!
     var _application: UIApplication!
+    var _pushId :String!
     
     // 
     //var initializedLocation: Bool = false;
@@ -91,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
         NSLog("---AppDelegate applicationWillResignActive");
+        _application = application
         
         //BackGroundGeoLocation
         self.backgroundTaskID = application.beginBackgroundTaskWithExpirationHandler(){

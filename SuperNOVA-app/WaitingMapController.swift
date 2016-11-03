@@ -19,6 +19,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     
     // GoogleMap
     var lm = CLLocationManager()
+    @IBOutlet weak var shopName: UILabel!
     //
     var currentDisplayedPosition: GMSCameraPosition?
     //
@@ -32,34 +33,99 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     @IBOutlet weak var googleMap: GMSMapView!
     
     @IBAction func waiting(sender: UIButton) {
-        //func waiting(sender: UIButton) {
+        NSLog("---waiting");
         
-        //var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        // 教師リクエストAPI
+        MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time,sync: true,
+                                 success:{
+                                    values in let closure = {
+                                        NSLog("---CallViewController MergerAPI.requestTeacher success");
+                                        // 通信は成功したが、エラーが返ってきた場合
+                                        if(API.isError(values)){
+                                            NSLog("---CallViewController MergerAPI.requestTeacher isError");
+                                            /**
+                                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                                             Indicator.windowClose()
+                                             */
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                message: values["errorMessage"] as! String)
+                                            return
+                                        }
+                                        
+                                        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+                                        NSLog(values.debugDescription);
+                                        appDelegate._id = values["_id"] as! String
+                                        
+                                    }
+                                    // 通知の監視
+                                    if(!NSThread.isMainThread()){
+                                        NSLog("---CallViewController !NSThread.isMainThread() in success");
+                                        dispatch_sync(dispatch_get_main_queue()) {
+                                            closure()
+                                        }
+                                    } else {
+                                        NSLog("---CallViewController closure");
+                                        // 恐らく実行されない
+                                        closure()
+                                    }
+                                    
+            },
+                                 failed: {
+                                    id, message in let closure = {
+                                        NSLog("---CallViewController MergerAPI.requestTeacher failed");
+                                        /**
+                                         * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
+                                         Indicator.windowClose()
+                                         */
+                                        // 失敗した場合エラー情報を表示
+                                        if(id == -2) {
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                message: NSLocalizedString("MAX_FILE_SIZE_OVER", comment: ""));
+                                        } else {
+                                            AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
+                                                message: NSLocalizedString("ALERT_MESSAGE_NETWORK_ERROR", comment: ""));
+                                        }
+                                    }
+                                    // 通知の監視
+                                    if(!NSThread.isMainThread()){
+                                        NSLog("---CallViewController !NSThread.isMainThread() in failed");
+                                        dispatch_sync(dispatch_get_main_queue()) {
+                                            NSLog("---CallViewController dispatch_sync");
+                                            closure()
+                                        }
+                                    } else {
+                                        NSLog("---CallViewController dispatch_sync else");
+                                        //恐らく実行されない
+                                        closure()
+                                    }
+            }
+        )
+        
+        
+        NSLog("---waiting2");
         
         let now = NSDate() // 現在日時の取得
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         NSLog(dateFormatter.stringFromDate(now))
-        
-        //NSLog("waitinggggggg")
-        NSLog(appDelegate._id)
-        //NSLog("waitinggggggg")
-        
         var flg = false;
         
+        var flg4api = true;
         //ポーリング
         for(var i=0;i<10;i++){
             NSLog(dateFormatter.stringFromDate(now))
             NSThread.sleepForTimeInterval(1)
             
+            if(flg4api){
+                
             //リクエスト状況を取得
             MergerAPI.getRequestStatus(appDelegate._id ,sync: true,
                                        success:{
                                         values in let closure = {
-                                            NSLog("ConversationViewController success");
+                                            NSLog("---CallViewController success");
                                             // 通信は成功したが、エラーが返ってきた場合
                                             if(API.isError(values)){
-                                                NSLog("ConversationViewController isError");
+                                                NSLog("---CallViewController isError");
                                                 /**
                                                  * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                                  Indicator.windowClose()
@@ -71,28 +137,22 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
                                             
                                             NSLog(values.debugDescription);
                                             self.appDelegate._partner = values["teacher"] as! String
-                                            NSLog("yaaaaaaaaa")
-                                            NSLog(values["status"] as! String!)
-                                            NSLog("yaaaaaaaaa")
-                                            if(values["status"] as! String! == "req"){
-                                                NSLog("rererere")
-                                            }
-
                                             if(values["status"] as! String! == "res"){
-                                                NSLog("ifififififif")
                                                 flg = true
+                                                flg4api = false
+                                                NSLog("toEncounterView")
                                                 ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
                                             }
                                             
                                         }
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
-                                            NSLog("ConversationViewController !NSThread.isMainThread()");
+                                            NSLog("---CallViewController !NSThread.isMainThread()");
                                             dispatch_sync(dispatch_get_main_queue()) {
                                                 closure()
                                             }
                                         } else {
-                                            NSLog("ConversationViewController closure");
+                                            NSLog("---CallViewController closure");
                                             // 恐らく実行されない
                                             closure()
                                         }
@@ -100,7 +160,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
                 },
                                        failed: {
                                         id, message in let closure = {
-                                            NSLog("ConversationViewController failed");
+                                            NSLog("---CallViewController failed");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -117,23 +177,24 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
                                         }
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
-                                            NSLog("ConversationViewController !NSThread.isMainThread() 2");
+                                            NSLog("---CallViewController !NSThread.isMainThread() 2");
                                             dispatch_sync(dispatch_get_main_queue()) {
-                                                NSLog("ConversationViewController closure 2");
+                                                NSLog("---CallViewController closure 2");
                                                 closure()
                                             }
                                         } else {
-                                            NSLog("ConversationViewController closure 3");
+                                            NSLog("---CallViewController closure 3");
                                             //恐らく実行されない
                                             closure()
                                         }
                 }
             )
+            }
+
             
             
         }
         if(flg){
-            ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toEncounterView")
         } else {
             ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toMapView")
         }
@@ -246,6 +307,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         //dmarker.snippet = appDelegate._shopsnippet
         dmarker.map = self.googleMap
         
+        shopName.text = appDelegate._shoptitle
     }
 
 

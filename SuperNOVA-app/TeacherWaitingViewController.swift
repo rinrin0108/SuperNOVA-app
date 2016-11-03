@@ -15,11 +15,12 @@ import MapKit
 
 class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
 
-    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     // GoogleMap
     var lm = CLLocationManager()
     //
+    @IBOutlet weak var shopName: UILabel!
     var currentDisplayedPosition: GMSCameraPosition?
     //
     var latitude:   CLLocationDegrees!
@@ -165,6 +166,8 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         dmarker.title = appDelegate._shoptitle
         //dmarker.snippet = appDelegate._shopsnippet
         dmarker.map = self.googleMap
+        
+        shopName.text = appDelegate._shoptitle
         
     }
 

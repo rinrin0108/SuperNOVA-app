@@ -210,9 +210,7 @@ class UserRegisterViewController: UIViewController {
                             NSLog("self.profileImageURL");
                             NSLog(self.profileImageURL);
                         }
-                        NSLog("here");
                     })
-                    NSLog("here2");
                 }
         NSLog("isLoaded");
         isLoaded = true

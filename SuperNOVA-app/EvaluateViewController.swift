@@ -66,10 +66,10 @@ class EvaluateViewController: UIViewController {
         UserAPI.updateUserRate(appDelegate._partner,rate: rating ,sync: false,
                                  success:{
                                     values in let closure = {
-                                        NSLog("EvaluateViewController success");
+                                        NSLog("---EvaluateViewController UserAPI.updateUserRate success");
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
-                                            NSLog("EvaluateViewController isError");
+                                            NSLog("---EvaluateViewController UserAPI.updateUserRate isError");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -86,12 +86,13 @@ class EvaluateViewController: UIViewController {
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("EvaluateViewController !NSThread.isMainThread()");
+                                        NSLog("---EvaluateViewController !NSThread.isMainThread() in success");
                                         dispatch_sync(dispatch_get_main_queue()) {
+                                            NSLog("---EvaluateViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("EvaluateViewController closure");
+                                        NSLog("---EvaluateViewController dispatch_sync else");
                                         // 恐らく実行されない
                                         closure()
                                     }
@@ -99,7 +100,7 @@ class EvaluateViewController: UIViewController {
             },
                                  failed: {
                                     id, message in let closure = {
-                                        NSLog("EvaluateViewController failed");
+                                        NSLog("---EvaluateViewController UserAPI.updateUserRate failed");
                                         /**
                                          * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                          Indicator.windowClose()
@@ -115,20 +116,17 @@ class EvaluateViewController: UIViewController {
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("EvaluateViewController !NSThread.isMainThread() 2");
+                                        NSLog("---EvaluateViewController !NSThread.isMainThread() in failed");
                                         dispatch_sync(dispatch_get_main_queue()) {
-                                            NSLog("EvaluateViewController closure 2");
+                                            NSLog("---EvaluateViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("EvaluateViewController closure 3");
+                                        NSLog("---EvaluateViewController dispatch_sync else");
                                         //恐らく実行されない
                                         closure()
                                     }
             }
         )
-
-        
-
     }
 }

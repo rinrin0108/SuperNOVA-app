@@ -19,7 +19,7 @@ class EncounterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         //生徒
         self.name_student.text = appDelegate._fullname
         self.photo_student.image =  API.downloadImage(appDelegate._image)
@@ -28,10 +28,10 @@ class EncounterViewController: UIViewController {
         UserAPI.getUser(appDelegate._partner,sync: false,
                                   success:{
                                     values in let closure = {
-                                        NSLog("ConversationViewController success");
+                                        NSLog("---EncounterViewController UserAPI.getUser success");
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
-                                            NSLog("ConversationViewController isError");
+                                            NSLog("---EncounterViewController UserAPI.getUser isError");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -50,12 +50,13 @@ class EncounterViewController: UIViewController {
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("ConversationViewController !NSThread.isMainThread()");
+                                        NSLog("---EncounterViewController !NSThread.isMainThread() in success");
                                         dispatch_sync(dispatch_get_main_queue()) {
+                                            NSLog("---EncounterViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("ConversationViewController closure");
+                                        NSLog("---EncounterViewController dispatch_sync else");
                                         // 恐らく実行されない
                                         closure()
                                     }
@@ -63,7 +64,7 @@ class EncounterViewController: UIViewController {
             },
                                   failed: {
                                     id, message in let closure = {
-                                        NSLog("ConversationViewController failed");
+                                        NSLog("---EncounterViewController UserAPI.getUser failed");
                                         /**
                                          * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                          Indicator.windowClose()
@@ -79,30 +80,24 @@ class EncounterViewController: UIViewController {
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("ConversationViewController !NSThread.isMainThread() 2");
+                                        NSLog("---EncounterViewController !NSThread.isMainThread() in failed");
                                         dispatch_sync(dispatch_get_main_queue()) {
-                                            NSLog("ConversationViewController closure 2");
+                                            NSLog("---EncounterViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("ConversationViewController closure 3");
+                                        NSLog("---EncounterViewController dispatch_sync else");
                                         //恐らく実行されない
                                         closure()
                                     }
             }
         )
-        
-        
-        
-        
-        
-
     }
     
     
     @IBAction func start(sender: UIButton) {
         
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         
         //ピッチングの開始時間を更新
@@ -111,14 +106,14 @@ class EncounterViewController: UIViewController {
         dateFormatter.dateFormat = "yyyyMMddHHmm"
         NSLog(dateFormatter.stringFromDate(now))
         
-        var starttime :String! = dateFormatter.stringFromDate(now)
+        let starttime :String! = dateFormatter.stringFromDate(now)
         MergerAPI.updatePitchStarttime(appDelegate._id , starttime: starttime ,sync: false,
                                        success:{
                                         values in let closure = {
-                                            NSLog("ConversationViewController success");
+                                            NSLog("---EncounterViewController MergerAPI.updatePitchStarttime success");
                                             // 通信は成功したが、エラーが返ってきた場合
                                             if(API.isError(values)){
-                                                NSLog("ConversationViewController isError");
+                                                NSLog("---EncounterViewController MergerAPI.updatePitchStarttime isError");
                                                 /**
                                                  * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                                  Indicator.windowClose()
@@ -133,12 +128,12 @@ class EncounterViewController: UIViewController {
                                         }
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
-                                            NSLog("ConversationViewController !NSThread.isMainThread()");
+                                            NSLog("---EncounterViewController !NSThread.isMainThread() in success");
                                             dispatch_sync(dispatch_get_main_queue()) {
                                                 closure()
                                             }
                                         } else {
-                                            NSLog("ConversationViewController closure");
+                                            NSLog("---EncounterViewController closure");
                                             // 恐らく実行されない
                                             closure()
                                         }
@@ -146,7 +141,7 @@ class EncounterViewController: UIViewController {
             },
                                        failed: {
                                         id, message in let closure = {
-                                            NSLog("ConversationViewController failed");
+                                            NSLog("---EncounterViewController MergerAPI.updatePitchStarttime failed");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -162,13 +157,13 @@ class EncounterViewController: UIViewController {
                                         }
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
-                                            NSLog("ConversationViewController !NSThread.isMainThread() 2");
+                                            NSLog("---EncounterViewController !NSThread.isMainThread() in failed");
                                             dispatch_sync(dispatch_get_main_queue()) {
-                                                NSLog("ConversationViewController closure 2");
+                                                NSLog("---EncounterViewController dispatch_sync");
                                                 closure()
                                             }
                                         } else {
-                                            NSLog("ConversationViewController closure 3");
+                                            NSLog("---EncounterViewController dispatch_sync else");
                                             //恐らく実行されない
                                             closure()
                                         }

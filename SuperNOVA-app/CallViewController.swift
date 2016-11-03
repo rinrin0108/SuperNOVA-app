@@ -22,7 +22,7 @@ class CallViewController: UIViewController {
     }
     
     @IBAction func call(sender: UIButton) {
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         if(appDelegate._time == ""){
             appDelegate._time = "30"
@@ -32,10 +32,10 @@ class CallViewController: UIViewController {
         MergerAPI.requestTeacher(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng, lang: appDelegate._lang, place: appDelegate._place ,time:appDelegate._time,sync: false,
                            success:{
                             values in let closure = {
-                                NSLog("CallViewController success");
+                                NSLog("---CallViewController MergerAPI.requestTeacher success");
                                 // 通信は成功したが、エラーが返ってきた場合
                                 if(API.isError(values)){
-                                    NSLog("CallViewController isError");
+                                    NSLog("---CallViewController MergerAPI.requestTeacher isError");
                                     /**
                                      * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                      Indicator.windowClose()
@@ -45,7 +45,7 @@ class CallViewController: UIViewController {
                                     return
                                 }
                                 
-                                var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+                                let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
                                 NSLog(values.debugDescription);
                                 appDelegate._id = values["_id"] as! String
                                 
@@ -54,12 +54,12 @@ class CallViewController: UIViewController {
                             }
                             // 通知の監視
                             if(!NSThread.isMainThread()){
-                                NSLog("CallViewController !NSThread.isMainThread()");
+                                NSLog("---CallViewController !NSThread.isMainThread() in success");
                                 dispatch_sync(dispatch_get_main_queue()) {
                                     closure()
                                 }
                             } else {
-                                NSLog("CallViewController closure");
+                                NSLog("---CallViewController closure");
                                 // 恐らく実行されない
                                 closure()
                             }
@@ -67,7 +67,7 @@ class CallViewController: UIViewController {
             },
                            failed: {
                             id, message in let closure = {
-                                NSLog("CallViewController failed");
+                                NSLog("---CallViewController MergerAPI.requestTeacher failed");
                                 /**
                                  * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                  Indicator.windowClose()
@@ -83,13 +83,13 @@ class CallViewController: UIViewController {
                             }
                             // 通知の監視
                             if(!NSThread.isMainThread()){
-                                NSLog("CallViewController !NSThread.isMainThread() 2");
+                                NSLog("---CallViewController !NSThread.isMainThread() in failed");
                                 dispatch_sync(dispatch_get_main_queue()) {
-                                    NSLog("CallViewController closure 2");
+                                    NSLog("---CallViewController dispatch_sync");
                                     closure()
                                 }
                             } else {
-                                NSLog("CallViewController closure 3");
+                                NSLog("---CallViewController dispatch_sync else");
                                 //恐らく実行されない
                                 closure()
                             }

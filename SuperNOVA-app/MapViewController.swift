@@ -162,7 +162,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     //バックグラウンド位置情報取得の事前設定
     func setupBackGroundGeoLocation(){
         NSLog("setupBackGroundGeoLocation")
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         //位置情報認証
         let status = CLLocationManager.authorizationStatus()
@@ -189,7 +188,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     //位置情報取得時処理
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         NSLog("BackGroundGeo locationManager")
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         let lastLocation = locations.last
         if let last = lastLocation {
             let eventDate = last.timestamp
@@ -197,10 +196,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 if let location = manager.location {
                     appDelegate._lat = location.coordinate.latitude.description
                     appDelegate._lng = location.coordinate.longitude.description
-                    
-                    //ここでWEB API叩く
-                    
-                    //叩いた結果、fooならローカルPUSHする
                 }
             }
         }

@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _shoptitle :String!
     var _shopsnippet :String!
     var _status: CLAuthorizationStatus!
-    var _application:UIApplication!
+    var _application: UIApplication!
     
     // 
     //var initializedLocation: Bool = false;
@@ -90,8 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
         
-        NSLog("lat:バックグラウンド");
-        _application = application;
+        NSLog("---AppDelegate applicationWillResignActive");
         
         //BackGroundGeoLocation
         self.backgroundTaskID = application.beginBackgroundTaskWithExpirationHandler(){
@@ -126,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //バックグラウンド位置情報取得の事前設定
     func setupBackGroundGeoLocation(){
-        NSLog("setupBackGroundGeoLocation")
+        NSLog("---AppDelegate setupBackGroundGeoLocation")
         
         //位置情報認証
         let status = CLLocationManager.authorizationStatus()
@@ -152,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //位置情報取得時処理
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        NSLog("BackGroundGeo locationManager")
+        NSLog("---AppDelegate locationManager")
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         let lastLocation = locations.last
         if let last = lastLocation {
@@ -168,7 +167,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // 座標が取得できない場合の処理
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
-        NSLog("Error getting Location")
+        NSLog("---AppDelegate locationManager Error getting Location")
     }
 
 

@@ -23,38 +23,38 @@ class UserRegisterViewController: UIViewController {
     
     
     @IBAction func changeJapanese(sender: UIButton) {
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._lang = "Japanese"
         appDelegate._native = "English"
     }
 
     @IBAction func changeEnglish(sender: UIButton) {
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         appDelegate._lang = "English"
         appDelegate._native = "Japanese"
     }
     
     
     @IBAction func registUser(sender: UIButton) {
-        NSLog("UserRegisterViewController registUser");
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        NSLog("---UserRegisterViewController registUser");
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         /**
          *  画像ではなく画像URLを使用
         var data : NSData? = nil
         // プロファイル画像が選択されていた場合
         if(selectImage != nil){
-            NSLog("UserRegisterViewController selectImage");
+            NSLog("---UserRegisterViewController selectImage");
             // PNG形式の画像フォーマットとしてNSDataに変換
             if let jpg = UIImageJPEGRepresentation(profile.image!, 0.2) {
                 data = jpg
-                NSLog("UserRegisterViewController jpg");
+                NSLog("---UserRegisterViewController jpg");
             }else if let png = UIImagePNGRepresentation(profile.image!) {
                 data = png
-                NSLog("UserRegisterViewController png");
+                NSLog("---UserRegisterViewController png");
             }
         } else {
             data = UIImagePNGRepresentation(UIImage(named: "user_no_image")!)
-            NSLog("UserRegisterViewController user_no_image");
+            NSLog("---UserRegisterViewController user_no_image");
         }
         */
         
@@ -72,10 +72,10 @@ class UserRegisterViewController: UIViewController {
         UserAPI.registUser(email.text, first_name: first_name.text, last_name: last_name.text , lang: appDelegate._lang , native: appDelegate._native, profileImageURL: profileImageURL ,sync: false,
                         success:{
                         values in let closure = {
-                            NSLog("UserRegisterViewController success");
+                            NSLog("---UserRegisterViewController UserAPI.registUser success");
                             // 通信は成功したが、エラーが返ってきた場合
                             if(API.isError(values)){
-                                NSLog("UserRegisterViewController isError");
+                                NSLog("---UserRegisterViewController UserAPI.registUser isError");
                                 /**
                                  * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                 Indicator.windowClose()
@@ -86,9 +86,7 @@ class UserRegisterViewController: UIViewController {
                             }
                             
                             // API返却値と、画面入力値を端末に保存
-                            NSLog("UserRegisterViewController here");
-                            var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-                            NSLog("UserRegisterViewController here");
+                            let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
                             appDelegate._userid    = self.email.text
                             appDelegate._image     = self.profileImageURL
                             appDelegate._fullname  = self.first_name.text! + self.last_name.text!
@@ -108,12 +106,13 @@ class UserRegisterViewController: UIViewController {
                         }
                         // 通知の監視
                         if(!NSThread.isMainThread()){
-                            NSLog("UserRegisterViewController !NSThread.isMainThread()");
+                            NSLog("---UserRegisterViewController !NSThread.isMainThread() in success");
                             dispatch_sync(dispatch_get_main_queue()) {
+                                NSLog("---UserRegisterViewController dispatch_sync");
                                 closure()
                             }
                         } else {
-                            NSLog("UserRegisterViewController closure");
+                            NSLog("---UserRegisterViewController dispatch_sync else");
                             // 恐らく実行されない
                             closure()
                         }
@@ -121,7 +120,7 @@ class UserRegisterViewController: UIViewController {
             },
                        failed: {
                         id, message in let closure = {
-                            NSLog("UserRegisterViewController failed");
+                            NSLog("---UserRegisterViewController UserAPI.registUser failed");
                             /**
                             * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                             Indicator.windowClose()
@@ -137,13 +136,13 @@ class UserRegisterViewController: UIViewController {
                         }
                         // 通知の監視
                         if(!NSThread.isMainThread()){
-                            NSLog("UserRegisterViewController !NSThread.isMainThread() 2");
+                            NSLog("---UserRegisterViewController !NSThread.isMainThread() in failed");
                             dispatch_sync(dispatch_get_main_queue()) {
-                                NSLog("UserRegisterViewController closure 2");
+                                NSLog("---UserRegisterViewController dispatch_sync");
                                 closure()
                             }
                         } else {
-                            NSLog("UserRegisterViewController closure 3");
+                            NSLog("---UserRegisterViewController dispatch_sync else");
                             //恐らく実行されない
                             closure()
                         }
@@ -157,10 +156,10 @@ class UserRegisterViewController: UIViewController {
     override
     func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("UserRegisterViewController viewDidLoad");
+        NSLog("---UserRegisterViewController viewDidLoad");
                 //Facebookがログイン済みの場合その情報を反映させる。
                 if (FBSDKAccessToken.currentAccessToken() != nil) {
-                    NSLog("UserRegisterViewController FBSDKAccessToken.currentAccessToken()");
+                    NSLog("---UserRegisterViewController FBSDKAccessToken.currentAccessToken()");
                     let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",
                         parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"])
                     graphRequest.startWithCompletionHandler({
@@ -173,7 +172,7 @@ class UserRegisterViewController: UIViewController {
                         }
                         else
                         {
-                            NSLog("UserRegisterViewController success");
+                            NSLog("---UserRegisterViewController graphRequest.startWithCompletionHandler success");
                             // プロフィール情報をディクショナリに入れる
                             let userProfile : NSDictionary! = result as! NSDictionary
         
@@ -188,7 +187,7 @@ class UserRegisterViewController: UIViewController {
                             NSLog((userProfile.objectForKey("email") as? String)!);
         
                             if profileImageURL != "" {
-                                NSLog("UserRegisterViewController profileImageURL is not null");
+                                NSLog("---UserRegisterViewController profileImageURL is not null");
                                 let profileImage : UIImage? = API.downloadImage(profileImageURL)
                                 self.profile.image = profileImage
                                 self.selectImage = profileImage

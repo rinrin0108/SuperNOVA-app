@@ -30,16 +30,16 @@ class ConversationViewController: UIViewController {
     
     @IBAction func start(sender: UIButton) {
         
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         //ピッチング終了リクエスト
         MergerAPI.finishPitching(appDelegate._id ,sync: false,
                                        success:{
                                         values in let closure = {
-                                            NSLog("ConversationViewController success");
+                                            NSLog("---ConversationViewController MergerAPI.finishPitching success");
                                             // 通信は成功したが、エラーが返ってきた場合
                                             if(API.isError(values)){
-                                                NSLog("ConversationViewController isError");
+                                                NSLog("---ConversationViewController MergerAPI.finishPitching isError");
                                                 /**
                                                  * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                                  Indicator.windowClose()
@@ -54,12 +54,13 @@ class ConversationViewController: UIViewController {
                                         }
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
-                                            NSLog("ConversationViewController !NSThread.isMainThread()");
+                                            NSLog("---ConversationViewController !NSThread.isMainThread() in success");
                                             dispatch_sync(dispatch_get_main_queue()) {
+                                                NSLog("---ConversationViewController dispatch_sync");
                                                 closure()
                                             }
                                         } else {
-                                            NSLog("ConversationViewController closure");
+                                            NSLog("---ConversationViewController dispatch_sync else");
                                             // 恐らく実行されない
                                             closure()
                                         }
@@ -67,7 +68,7 @@ class ConversationViewController: UIViewController {
             },
                                        failed: {
                                         id, message in let closure = {
-                                            NSLog("ConversationViewController failed");
+                                            NSLog("---ConversationViewController MergerAPI.finishPitching failed");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -83,13 +84,13 @@ class ConversationViewController: UIViewController {
                                         }
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
-                                            NSLog("ConversationViewController !NSThread.isMainThread() 2");
+                                            NSLog("---ConversationViewController !NSThread.isMainThread() in failed");
                                             dispatch_sync(dispatch_get_main_queue()) {
-                                                NSLog("ConversationViewController closure 2");
+                                                NSLog("---ConversationViewController dispatch_sync");
                                                 closure()
                                             }
                                         } else {
-                                            NSLog("ConversationViewController closure 3");
+                                            NSLog("---ConversationViewController dispatch_sync else");
                                             //恐らく実行されない
                                             closure()
                                         }

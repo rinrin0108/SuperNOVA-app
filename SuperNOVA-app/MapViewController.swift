@@ -23,10 +23,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: false,
                                    success:{
                                     values in let closure = {
-                                        NSLog("ConversationViewController success");
+                                        NSLog("---MapViewController MergerAPI.responseTeacher success");
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
-                                            NSLog("ConversationViewController isError");
+                                            NSLog("---MapViewController MergerAPI.responseTeacher isError");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClos()
@@ -43,20 +43,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("ConversationViewController !NSThread.isMainThread()");
+                                        NSLog("---MapViewController !NSThread.isMainThread() in success");
                                         dispatch_sync(dispatch_get_main_queue()) {
+                                            NSLog("---MapViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("ConversationViewController closure");
+                                        NSLog("---MapViewController dispatch_sync else");
                                         // 恐らく実行されない
                                         closure()
                                     }
-                                    
             },
                                    failed: {
                                     id, message in let closure = {
-                                        NSLog("ConversationViewController failed");
+                                        NSLog("---MapViewController MergerAPI.responseTeacher failed");
                                         /**
                                          * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                          Indicator.windowClose()
@@ -72,21 +72,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("ConversationViewController !NSThread.isMainThread() 2");
+                                        NSLog("---MapViewController !NSThread.isMainThread() in failed");
                                         dispatch_sync(dispatch_get_main_queue()) {
-                                            NSLog("ConversationViewController closure 2");
+                                            NSLog("---MapViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("ConversationViewController closure 3");
+                                        NSLog("---MapViewController dispatch_sync else");
                                         //恐らく実行されない
                                         closure()
                                     }
             }
         )
-        
-
-        
     }
     
     
@@ -154,7 +151,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     func searchRequest() {
-        NSLog("searchRequest timer")
         let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
         appDelegate._place = "SHOP01";
@@ -164,15 +160,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             appDelegate._lng = "139.773114";
         }
         
-        print("lat:" + appDelegate._lat + " lng:" + appDelegate._lng);
+        NSLog("---MapViewController searchRequest lat:" + appDelegate._lat + " lng:" + appDelegate._lng);
         
         UserAPI.updateUserLocation(appDelegate._userid, lat: appDelegate._lat, lng: appDelegate._lng ,sync: false,
                                    success:{
                                     values in let closure = {
-                                        NSLog("MapViewController success");
+                                        NSLog("---MapViewController UserAPI.updateUserLocation success");
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
-                                            NSLog("MapViewController isError");
+                                            NSLog("---MapViewController UserAPI.updateUserLocation isError");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -186,12 +182,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("MapViewController !NSThread.isMainThread()");
+                                        NSLog("---MapViewController !NSThread.isMainThread() in success");
                                         dispatch_sync(dispatch_get_main_queue()) {
+                                            NSLog("---MapViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("MapViewController closure");
+                                        NSLog("---MapViewController dispatch_sync else");
                                         // 恐らく実行されない
                                         closure()
                                     }
@@ -199,7 +196,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             },
                                    failed: {
                                     id, message in let closure = {
-                                        NSLog("MapViewController failed");
+                                        NSLog("---MapViewController UserAPI.updateUserLocation failed");
                                         /**
                                          * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                          Indicator.windowClose()
@@ -215,13 +212,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("MapViewController !NSThread.isMainThread() 2");
+                                        NSLog("---MapViewController !NSThread.isMainThread() in failed");
                                         dispatch_sync(dispatch_get_main_queue()) {
-                                            NSLog("MapViewController closure 2");
+                                            NSLog("---MapViewController dispatch_sync");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("MapViewController closure 3");
+                                        NSLog("---MapViewController dispatch_sync else");
                                         //恐らく実行されない
                                         closure()
                                     }
@@ -234,10 +231,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         MergerAPI.searchRequest(appDelegate._lat,lng: appDelegate._lng,lang: appDelegate._native ,sync: false,
                                    success:{
                                     values in let closure = {
-                                        NSLog("ConversationViewController success");
+                                        NSLog("---MapViewController MergerAPI.searchRequest success");
                                         // 通信は成功したが、エラーが返ってきた場合
                                         if(API.isError(values)){
-                                            NSLog("ConversationViewController isError");
+                                            NSLog("---MapViewController MergerAPI.searchRequest isError");
                                             /**
                                              * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                              Indicator.windowClose()
@@ -277,12 +274,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("ConversationViewController !NSThread.isMainThread()");
+                                        NSLog("---MapViewController !NSThread.isMainThread()");
                                         dispatch_sync(dispatch_get_main_queue()) {
                                             closure()
                                         }
                                     } else {
-                                        NSLog("ConversationViewController closure");
+                                        NSLog("---MapViewController closure");
                                         // 恐らく実行されない
                                         closure()
                                     }
@@ -290,7 +287,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             },
                                    failed: {
                                     id, message in let closure = {
-                                        NSLog("ConversationViewController failed");
+                                        NSLog("---MapViewController MergerAPI.searchRequest failed");
                                         /**
                                          * ストーリーボードをまたぐ時に値を渡すためのもの（Indicatorストーリーボードを作成する必要あり）
                                          Indicator.windowClose()
@@ -307,13 +304,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     }
                                     // 通知の監視
                                     if(!NSThread.isMainThread()){
-                                        NSLog("ConversationViewController !NSThread.isMainThread() 2");
+                                        NSLog("---MapViewController !NSThread.isMainThread() 2");
                                         dispatch_sync(dispatch_get_main_queue()) {
-                                            NSLog("ConversationViewController closure 2");
+                                            NSLog("---MapViewController closure 2");
                                             closure()
                                         }
                                     } else {
-                                        NSLog("ConversationViewController closure 3");
+                                        NSLog("---MapViewController closure 3");
                                         //恐らく実行されない
                                         closure()
                                     }
@@ -381,11 +378,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             session.dataTaskWithURL(searchNSURL!, completionHandler: { (data : NSData?, response : NSURLResponse?, error : NSError?) in
                 
                 if error != nil {
-                    print("エラーが発生しました。\(error)")
+                    NSLog("エラーが発生しました。\(error)")
                 } else {
                     if let statusCode = response as? NSHTTPURLResponse {
                         if statusCode.statusCode != 200 {
-                            print("サーバから期待するレスポンスが来ませんでした。\(response)")
+                            NSLog("サーバから期待するレスポンスが来ませんでした。\(response)")
                         }
                     }
                 
@@ -426,7 +423,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                             }
                         }
                     } catch {
-                        print("error")
+                        NSLog("error")
                     }
                 }
                 sleep(1)

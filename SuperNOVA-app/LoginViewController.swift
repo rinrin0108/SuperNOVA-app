@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
      * ログインボタン押下時
      **/
     @IBAction func pushLogin(sender: UIButton) {
-        print("---LoginViewController pushLogin");
+        NSLog("---LoginViewController pushLogin");
         //ログイン認証を行う
         let login : FBSDKLoginManager = FBSDKLoginManager.init()
         login.logInWithReadPermissions(["public_profile", "email"], fromViewController: self,
@@ -39,13 +39,13 @@ class LoginViewController: UIViewController {
                                         let closure = {
                                             if ((error) != nil)
                                             {
-                                                print("---LoginViewController error");
+                                                NSLog("---LoginViewController pushLogin error");
                                                 NSLog(error.description);
                                                 // 失敗した場合エラー情報を表示
                                                 AlertUtil.alertError(self, title: NSLocalizedString("ALERT_TITLE_ERROR", comment: ""),
                                                     message: NSLocalizedString("ALERT_LOGIN_FAILED_ERROR", comment: ""));
                                             } else if !result.isCancelled {
-                                                print("---LoginViewController success");
+                                                NSLog("---LoginViewController success");
                                                 //ログインが成功
                                                 ViewShowAnimation.changeViewWithIdentiferFromHome(self, toVC: "toUserRegisterView")
                                             }
@@ -53,10 +53,13 @@ class LoginViewController: UIViewController {
                                         
                                         // 通知の監視
                                         if(!NSThread.isMainThread()){
+                                            NSLog("---LoginViewController !NSThread.isMainThread()");
                                             dispatch_sync(dispatch_get_main_queue()) {
+                                                NSLog("---LoginViewController dispatch_sync");
                                                 closure()
                                             }
                                         } else {
+                                            NSLog("---LoginViewController dispatch_sync else");
                                             // 恐らく実行されない
                                             closure()
                                         }

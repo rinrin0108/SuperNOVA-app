@@ -223,7 +223,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isX-O7-C8B">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
-                                <state key="normal" title="CheckIn" backgroundImage="orange_btn">
+                                <state key="normal" title="ここでNOVAる" backgroundImage="orange_btn">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -247,12 +247,6 @@
                                 <rect key="frame" x="138" y="485" width="202" height="85"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="地図だけモックです" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SjV-qM-ir3">
-                                <rect key="frame" x="268" y="19" width="95" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -294,7 +288,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN5-WC-mP5">
                                 <rect key="frame" x="40" y="600" width="300" height="50"/>
-                                <state key="normal" title="ここにCall" backgroundImage="btn_green">
+                                <state key="normal" title="ここでNOVAる" backgroundImage="btn_green">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -311,12 +305,6 @@
                                 <rect key="frame" x="145" y="486" width="193" height="85"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="地図だけモックです" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoz-Xs-gi9">
-                                <rect key="frame" x="230" y="14" width="125" height="52"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -655,7 +643,7 @@
         <image name="splash_image" width="750" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CBP-oz-Lc4"/>
+        <segue reference="IwH-KW-BsE"/>
         <segue reference="PBm-En-xVe"/>
     </inferredMetricsTieBreakers>
 </document>

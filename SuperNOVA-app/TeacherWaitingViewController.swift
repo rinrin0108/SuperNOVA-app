@@ -30,38 +30,16 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
     var mcenter: CLLocationCoordinate2D!
     
     @IBOutlet weak var googleMap: GMSMapView!
-    //@IBOutlet weak var MarkerTitle: UILabel!
-    //@IBOutlet weak var MarkerImage: UIImageView!
-    
-    // Google Directions API
-    /*
-    let baseURLDirections = "https://maps.googleapis.com/maps/api/directions/json?"
-    var selectedRoute: Dictionary<NSObject, AnyObject>!
-    var overviewPolyline: Dictionary<NSObject, AnyObject>!
-    var originCoordinate: CLLocationCoordinate2D!
-    var destinationCoordinate: CLLocationCoordinate2D!
-    var originAddress: String!
-    var destinationAddress: String!
-    
-    var totalDistanceInMeters: UInt = 0
-    var totalDistance: String!
-    var totalDurationInSeconds: UInt = 0
-    var totalDuration: String!
-    
-    var originMarker: GMSMarker!
-    var destinationMarker: GMSMarker!
-    var routePolyline: GMSPolyline!
-    
-    //var mapTasks = MapTasks()
-    */
  
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         // 位置情報サービスを開始するかの確認（初回のみ）
         if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedAlways {
             lm.requestAlwaysAuthorization()
         }
+        */
         
         // 初期設定
         initLocationManager();

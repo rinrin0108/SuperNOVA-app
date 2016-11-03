@@ -50,6 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //BackGroundGeoLocation
     var backgroundTaskID : UIBackgroundTaskIdentifier = 0
     
+    var pushLocationManager: CLLocationManager!
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -67,6 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // iOS7以前
             application.registerForRemoteNotificationTypes( [.Alert,.Sound,.Badge] )
         }
+        
+        //バックグラウンド位置情報取得の事前設定
+        setupBackGroundGeoLocation()
+        //初回位置情報取得
+        pushLocationManager.startUpdatingLocation()
 
         //Facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -115,6 +122,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    //バックグラウンド位置情報取得の事前設定
+    func setupBackGroundGeoLocation(){
+        NSLog("setupBackGroundGeoLocation")
+        
+        //位置情報認証
+        let status = CLLocationManager.authorizationStatus()
+        if status == CLAuthorizationStatus.Restricted || status == CLAuthorizationStatus.Denied {
+            return
+        }
+        
+        pushLocationManager = CLLocationManager()
+//        pushLocationManager.delegate = self
+        
+        if status == CLAuthorizationStatus.NotDetermined {
+            pushLocationManager.requestAlwaysAuthorization()
+        }
+        
+        if !CLLocationManager.locationServicesEnabled() {
+            return
+        }
+        
+        //位置情報取得開始
+        pushLocationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        pushLocationManager.distanceFilter = 1
+    }
+    
+    //位置情報取得時処理
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        NSLog("BackGroundGeo locationManager")
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let lastLocation = locations.last
+        if let last = lastLocation {
+            let eventDate = last.timestamp
+            if abs(eventDate.timeIntervalSinceNow) < 15.0 {
+                if let location = manager.location {
+                    appDelegate._lat = location.coordinate.latitude.description
+                    appDelegate._lng = location.coordinate.longitude.description
+                }
+            }
+        }
+    }
+    
+    // 座標が取得できない場合の処理
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError){
+        NSLog("Error getting Location")
     }
 
 

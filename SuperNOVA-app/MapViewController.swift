@@ -14,14 +14,12 @@ import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
-    var pushLocationManager: CLLocationManager!
-    
     @IBOutlet weak var push_icon: UIImageView!
     @IBOutlet weak var push_text: UILabel!
     
     @IBOutlet weak var responseTeacher: UIButton!
     @IBAction func responseTeacher(sender: UIButton) {
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         MergerAPI.responseTeacher(appDelegate._userid, _id: appDelegate._idpartner ,sync: false,
                                    success:{
                                     values in let closure = {
@@ -124,12 +122,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //バックグラウンド位置情報取得の事前設定
-        setupBackGroundGeoLocation()
-        //初回位置情報取得
-        pushLocationManager.startUpdatingLocation()
-        
+
         //更新された位置情報を元にした検索
         NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(MapViewController.searchRequest), userInfo: nil, repeats: true)
         
@@ -140,6 +133,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
 
         // 初期設定
         initLocationManager();
+        
         latitude  = CLLocationDegrees();
         longitude = CLLocationDegrees();
         
@@ -152,55 +146,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         googleMap.settings.myLocationButton = true
         
         // 周辺施設の表示
-        //searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
+//        searchAroudMe(self.googleMap, lat:latitude, lon:longitude);
         
         self.view.addSubview(googleMap)
         self.googleMap.delegate = self;
         
     }
-    
-    //バックグラウンド位置情報取得の事前設定
-    func setupBackGroundGeoLocation(){
-        NSLog("setupBackGroundGeoLocation")
-        
-        //位置情報認証
-        let status = CLLocationManager.authorizationStatus()
-        if status == CLAuthorizationStatus.Restricted || status == CLAuthorizationStatus.Denied {
-            return
-        }
-        
-        pushLocationManager = CLLocationManager()
-        pushLocationManager.delegate = self
-        
-        if status == CLAuthorizationStatus.NotDetermined {
-            pushLocationManager.requestAlwaysAuthorization()
-        }
-        
-        if !CLLocationManager.locationServicesEnabled() {
-            return
-        }
-        
-        //位置情報取得開始
-        pushLocationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        pushLocationManager.distanceFilter = 1
-    }
-    
-    //位置情報取得時処理
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        NSLog("BackGroundGeo locationManager")
-        let appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
-        let lastLocation = locations.last
-        if let last = lastLocation {
-            let eventDate = last.timestamp
-            if abs(eventDate.timeIntervalSinceNow) < 15.0 {
-                if let location = manager.location {
-                    appDelegate._lat = location.coordinate.latitude.description
-                    appDelegate._lng = location.coordinate.longitude.description
-                }
-            }
-        }
-    }
-    
     
     func searchRequest() {
         NSLog("searchRequest timer")

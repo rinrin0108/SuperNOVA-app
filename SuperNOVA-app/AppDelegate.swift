@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var _partnerimage :String!
     var _shoplat:   CLLocationDegrees!
     var _shoplng:  CLLocationDegrees!
+    var _shoptitle :String!
+    var _shopsnippet :String!
     
     // 
     //var initializedLocation: Bool = false;

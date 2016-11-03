@@ -78,7 +78,7 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
 
         //NSLog("Debug TeacherWatingView test")
         //callWebService()
-        NSLog("Debug TeacherWatingView")
+        //NSLog("Debug TeacherWatingView")
         
         self.view.addSubview(googleMap)
         self.googleMap.delegate = self;
@@ -175,10 +175,6 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
     
     func addPolyLineWithEncodedStringInMap(encodedString: String) {
         
-        //let camera = GMSCameraPosition.cameraWithLatitude(latitude, longitude: longitude, zoom: 10.0)
-        //let mapView = googleMap//GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
-        //mapView.myLocationEnabled = true
-        
         let path = GMSMutablePath(fromEncodedPath: encodedString)
         let polyLine = GMSPolyline(path: path)
         polyLine.strokeWidth = 5
@@ -186,18 +182,11 @@ class TeacherWaitingMapViewController: UIViewController, CLLocationManagerDelega
         polyLine.map = self.googleMap
         
         let smarker = GMSMarker()
-        //smarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        //smarker.title = "Lavale"
-        //smarker.snippet = "Maharshtra"
-        //smarker.map = self.googleMap//mapView
-        
         let dmarker = GMSMarker()
         dmarker.position = CLLocationCoordinate2D(latitude: appDelegate._shoplat, longitude: appDelegate._shoplng)
-        //dmarker.title = "Chakan"
-        //dmarker.snippet = "Maharshtra"
-        dmarker.map = self.googleMap//mapView
-        
-        //view = self.googleMap//mapView
+        dmarker.title = appDelegate._shoptitle
+        //dmarker.snippet = appDelegate._shopsnippet
+        dmarker.map = self.googleMap
         
     }
 

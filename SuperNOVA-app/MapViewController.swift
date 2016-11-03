@@ -384,7 +384,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                                     
                                     //ビンの座標を設定する
                                     dispatch_async(dispatch_get_main_queue(), {
-                                        NSLog("result:\(result)")
+                                        //NSLog("result:\(result)")
                                         let mposition = CLLocationCoordinate2DMake(location["lat"] as! CLLocationDegrees, location["lng"] as! CLLocationDegrees)
                                         
                                         marker = GMSMarker(position: mposition)
@@ -417,13 +417,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
-        NSLog("marker:\(marker)")
-        NSLog("title:\(marker.title)")
-        NSLog("icon :\(marker.icon)")
+        //NSLog("marker:\(marker)")
+        //NSLog("title:\(marker.title)")
+        //NSLog("icon :\(marker.icon)")
         MarkerTitle.text = marker.title
         MarkerImage.image = marker.icon
         appDelegate._shoplat = marker.position.latitude
         appDelegate._shoplng = marker.position.longitude
+        appDelegate._shoptitle = marker.title
         
         //self.view.addSubview(mapView)
         return false

@@ -32,6 +32,7 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
     @IBOutlet weak var googleMap: GMSMapView!
     
     @IBAction func waiting(sender: UIButton) {
+        //func waiting(sender: UIButton) {
         
         //var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
         
@@ -40,9 +41,9 @@ class WaitingMapViewController: UIViewController, CLLocationManagerDelegate, GMS
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         NSLog(dateFormatter.stringFromDate(now))
         
-        NSLog("waitinggggggg")
+        //NSLog("waitinggggggg")
         NSLog(appDelegate._id)
-        NSLog("waitinggggggg")
+        //NSLog("waitinggggggg")
         
         var flg = false;
         
